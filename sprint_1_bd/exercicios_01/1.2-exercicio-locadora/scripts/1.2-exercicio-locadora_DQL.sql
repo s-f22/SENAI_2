@@ -1,0 +1,34 @@
+USE LOCADORA
+GO
+
+--DQL
+SELECT * FROM ALUGUEL;
+SELECT * FROM CLIENTE;
+SELECT * FROM EMPRESA;
+SELECT * FROM MARCA;
+SELECT * FROM MODELO;
+SELECT * FROM VEICULO;
+
+SELECT valorAluguel, dataRetirada, dataDevolucao, nomeCliente FROM ALUGUEL
+LEFT JOIN CLIENTE
+ON ALUGUEL.idCliente = CLIENTE.idCliente;
+SELECT nomeModelo FROM VEICULO
+LEFT JOIN MODELO
+ON VEICULO.IdModelo = MODELO.idModelo
+
+/*
+SELECT valorAluguel, dataRetirada, dataDevolucao, nomeCliente FROM ALUGUEL
+LEFT JOIN CLIENTE
+ON ALUGUEL.idCliente = CLIENTE.idCliente;
+*/
+
+
+
+
+UPDATE ALUGUEL
+SET idCliente = 3
+WHERE idAluguel = 5;
+
+
+
+
