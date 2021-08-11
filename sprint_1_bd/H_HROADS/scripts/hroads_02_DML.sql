@@ -1,3 +1,6 @@
+/* 3. Inserir os registros conforme descrição no próprio texto 
+(classes, habilidades, tipos de habilidades e personagens); */
+
 USE SENAI_HROADS_TARDE;
 GO
 
@@ -15,26 +18,28 @@ VALUES (1, 'Lança Mortal'), (2, 'Escudo Supremo'), (3, 'Recuperar Vida')
 GO
 
 INSERT INTO PERSONAGEM (idClasse, nomePersonagem, dataCriacao, dataAtualizacao)
-VALUES (4, 'DeuBug', '05/02/2021','10/08/2021'), (5, 'BitBug','01/01/2020','10/08/2021'), 
-(6, 'Fer8','03/05/2020','10/08/2021'),(7, 'BDD','29/07/2021','10/08/2021')
+VALUES (1, 'DeuBug', '05/02/2021','10/08/2021'), (2, 'BitBug','01/01/2020','10/08/2021'), 
+(3, 'Fer8','03/05/2020','10/08/2021'),(4, 'BDD','29/07/2021','10/08/2021')
 GO
 
 INSERT INTO CLASSE_HABILIDADE (idHabilidade, idClasse)
-VALUES (1,4),(2,4),(2,5),(3,5),(NULL,6),(NULL,7),(3,8),(2,9),(1,10)
+VALUES (1,1),(2,1),(2,2),(3,2),(NULL,3),(NULL,4),(3,5),(2,6),(1,7)
 GO
 
 INSERT INTO PLAYER(idPersonagem, nomePlayer)
 VALUES (1, 'Samuel'), (2, 'Erick'), (3, 'Erick'), (4, 'Samuel')
 GO
 
+--4. Atualizar o nome do personagem Fer8 para Fer7;
 UPDATE PERSONAGEM
 SET nomePersonagem = 'Fer7'
 WHERE PERSONAGEM.idPersonagem = 3;
 GO
 
+--5. Atualizar o nome da classe de Necromante para Necromancer;
 UPDATE CLASSE
 SET nomeClasse = 'Necromancer'
-WHERE CLASSE.idClasse = 7;
+WHERE CLASSE.idClasse = 4;
 GO
 
 

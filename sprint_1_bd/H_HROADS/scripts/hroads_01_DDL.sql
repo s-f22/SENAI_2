@@ -1,9 +1,11 @@
+--1. Criar o banco de dados chamado SENAI_HROADS_TARDE;
 CREATE DATABASE SENAI_HROADS_TARDE;
 GO
 
 USE	SENAI_HROADS_TARDE;
 GO
 
+--2. Criar as tabelas no banco de dados;
 CREATE TABLE CLASSE
 (
 	idClasse TINYINT PRIMARY KEY IDENTITY(1,1),
