@@ -59,3 +59,9 @@ ON HABILIDADE.idHabilidade = CLASSE_HABILIDADE.idHabilidade
 RIGHT JOIN CLASSE
 ON CLASSE_HABILIDADE.idClasse = CLASSE.idClasse
 
+
+-- -----------------------------------------------------------------------
+SELECT nomePersonagem AS 'NOME DO PERSONAGEM', dataCriacao FROM PERSONAGEM;
+SELECT nomePersonagem AS 'NOME DO PERSONAGEM', DATENAME(YEAR, dataCriacao) AS 'ANO DE CRIAÇÃO' FROM PERSONAGEM
+SELECT nomePersonagem AS 'NOME DO PERSONAGEM', DATENAME(MONTH, dataCriacao) AS 'MES DE CRIAÇÃO' FROM PERSONAGEM
+SELECT nomePersonagem AS 'NOME DO PERSONAGEM', DATENAME(DAY, dataCriacao) AS 'DIA DE CRIAÇÃO' FROM PERSONAGEM
