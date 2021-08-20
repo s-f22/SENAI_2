@@ -1,0 +1,19 @@
+WEB
+cada medico só tem 1 especialidade
+consulta tem um STATUS (AGUARDANDO, CONFIRMADA, CANCELADA, não será excluida)
+
+4 dados para inserção de uma nova clinica
+
+5 por dia, por exemplo
+
+6
+
+7 semelhante a 5. O paciente podera ver somente suas proprias consultas, tal como o medico
+
+MOBILE
+
+1
+2
+
+
+FAZER MODELAGEM: conceitual, logico e fisico;
