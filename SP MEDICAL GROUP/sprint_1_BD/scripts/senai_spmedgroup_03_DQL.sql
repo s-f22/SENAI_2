@@ -81,15 +81,34 @@ WHERE paciente.idPaciente = 7; -- SELETOR DE PACIENTE
 
 
 
+-- Função para retornar a quantidade de médicos de uma determinada especialidade
 
-/*
-CREATE FUNCTION calculoIdade(@dataNascimento DATE)
-RETURNS TINYINT
-AS 
+CREATE FUNCTION medicos( @especialidade VARCHAR(20) )
+RETURNS TABLE 
+AS RETURN
+(
+	SELECT @especialidade AS Especialidade, COUNT(idEspecialidade) AS [Qtde de Medicos]
+	FROM dbo.especialidade
+	WHERE nome LIKE '%' + @especialidade + '%'
+)
+
+SELECT * FROM medicos('Pediatria')
+
+
+-- Função para que retorne a idade do usuário a partir de uma determinada stored procedure
+
+CREATE PROCEDURE calculoIdade( @nomePaciente VARCHAR(20) )
+AS
 BEGIN
-	DECLARE @IDADE TINYINT
-	SELECT @IDADE = DATEDIFF(YEAR, dataNascimento, GETDATE()) FROM paciente
-	WHERE dataNascimento = @dataNascimento
-	RETURN @IDADE
+	--DECLARE @IDADE TINYINT
+	--SELECT @IDADE = DATEDIFF( YEAR, dataNascimento, GETDATE() ) AS Idade FROM paciente
+	SELECT DATEDIFF( YEAR, dataNascimento, GETDATE() ) AS Idade FROM paciente
+	WHERE paciente.nomeCompleto = @nomePaciente
 END;
-*/
+
+EXEC calculoIdade 'Ligia Maria da Silva'
+
+
+--SELECT nomeCompleto FROM paciente
+--DROP PROCEDURE dbo.calculoIdade
+
