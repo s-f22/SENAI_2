@@ -1,0 +1,8 @@
+idConsulta,idMedico,idPaciente,idSituacao,dataHorario,resumo
+1,3,7,1,2020-01-20 15:00:00,Consulta de rotina
+2,2,2,3,2020-01-06 10:00:00,Retorno
+3,2,3,1,2020-02-07 11:00:00,Consulta de rotina
+4,2,2,1,2018-02-06 10:00:00,Encaminhamento para exames
+5,1,4,3,2019-02-07 11:00:00,Falta de apetite
+6,3,7,2,2020-03-08 15:00:00,Consulta de rotina
+7,1,4,2,2020-03-09 11:00:00,Encaminhamento para exames

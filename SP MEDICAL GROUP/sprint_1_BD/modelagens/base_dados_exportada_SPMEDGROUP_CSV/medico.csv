@@ -1,0 +1,4 @@
+idMedico,idEspecialidade,idClinica,idUsuario,nomeCompleto,crm
+1,2,1,8,Ricardo Lemos,54356-SP
+2,17,1,9,Roberto Possarle,53452-SP
+3,16,1,10,Helena Strada,65463-SP

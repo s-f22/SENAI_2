@@ -20,7 +20,8 @@ CREATE TABLE clinica
 	cnpj CHAR(20) UNIQUE NOT NULL,
 	razaoSocial VARCHAR(100) NOT NULL,
 	endereco VARCHAR(200) UNIQUE NOT NULL,
-	telefone VARCHAR(20) UNIQUE NOT NULL
+	telefone VARCHAR(20) UNIQUE NOT NULL,
+	horarioFuncionamento VARCHAR(50) NOT NULL
 );
 GO
 
@@ -36,7 +37,7 @@ GO
 CREATE TABLE situacao
 (
 	idSituacao SMALLINT PRIMARY KEY IDENTITY,
-	titulo VARCHAR(50) UNIQUE NOT NULL
+	titulo VARCHAR(50) DEFAULT ('Agendada') UNIQUE NOT NULL 
 );
 GO
 
@@ -61,7 +62,7 @@ CREATE TABLE paciente
 	rg CHAR(12) NOT NULL,
 	cpf CHAR(14) UNIQUE NOT NULL,
 	endereco VARCHAR(150) NOT NULL,
-	telefone VARCHAR(20) UNIQUE NOT NULL 
+	telefone VARCHAR(20) UNIQUE 
 );
 GO
 
@@ -81,5 +82,10 @@ GO
 CREATE TABLE consulta
 (
 	idConsulta INT PRIMARY KEY IDENTITY,
+	idMedico SMALLINT FOREIGN KEY REFERENCES medico(idMedico),
+	idPaciente INT FOREIGN KEY REFERENCES paciente(idPaciente),
+	idSituacao SMALLINT FOREIGN KEY REFERENCES situacao(idSituacao),
+	dataHorario DATETIME NOT NULL,
+	resumo VARCHAR(300)
 );
 GO
