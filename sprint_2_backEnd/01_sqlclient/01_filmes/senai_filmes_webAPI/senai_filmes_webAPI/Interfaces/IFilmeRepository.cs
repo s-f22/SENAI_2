@@ -9,7 +9,7 @@ namespace senai_filmes_webAPI.Interfaces
     /// <summary>
     /// Interface responsavel pelo repositorio FilmeRepository
     /// </summary>
-    interface IFilmeInterface
+    interface IFilmeRepository
     {
         /// <summary>
         /// Lista todos os filmes
