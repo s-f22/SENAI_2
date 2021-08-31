@@ -40,7 +40,7 @@ namespace senai_filmes_webAPI.Repositories
             {
                 string queryInsert;
 
-                if (novoFilme.idGenero != null)
+                if (novoFilme.idGenero > 0)
                 {
                     queryInsert = $"INSERT INTO FILME (idGenero, tituloFilme) VALUES ({novoFilme.idGenero},'{novoFilme.tituloFilme}')";
                 }
@@ -76,7 +76,7 @@ namespace senai_filmes_webAPI.Repositories
 
                 using (SqlConnection con = new SqlConnection(stringConexao))
                 {
-                    string querySelectAll = "SELECT idFilme [ID do Filme], ISNULL(CONVERT(VARCHAR(20), FILME.idGenero), 'NÃO CADASTRADO') AS 'ID do Gênero', tituloFilme 'Título do Filme', ISNULL(nomeGenero, 'NÃO CADASTRADO') 'Gênero do Filme' FROM FILME LEFT JOIN GENERO ON GENERO.idGenero = FILME.idGenero;";
+                    string querySelectAll = "SELECT idFilme [ID do Filme], FILME.idGenero AS 'ID do Gênero', tituloFilme 'Título do Filme', ISNULL(nomeGenero, 'NÃO CADASTRADO') 'Gênero do Filme' FROM FILME INNER JOIN GENERO ON GENERO.idGenero = FILME.idGenero;";
 
                     con.Open();
 
@@ -88,10 +88,11 @@ namespace senai_filmes_webAPI.Repositories
 
                         while (rdr.Read())
                         {
+                            
                             FilmeDomain filme = new FilmeDomain()
                             {
                                 idFilme = Convert.ToInt32(rdr[0]),
-                                idGenero = rdr[1].ToString(),
+                                idGenero = Convert.ToInt32(rdr[1]),
                                 tituloFilme = rdr[2].ToString(),
                                 nomeGenero = rdr[3].ToString()
                             };
