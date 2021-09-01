@@ -14,9 +14,9 @@ VALUES (2,'GOL'), (3,'PALIO'),
 (1,'CELTA'),(4,'FIT');
 GO
 
-INSERT INTO CLIENTE (nome, sobrenome)
-VALUES ('Carlos','Fernandes'),('Joana','Mendonça Costa'),
-('Silvana','Pereira'),('Bernardo','Gonçalves');
+INSERT INTO CLIENTE (nome, sobrenome, cnh)
+VALUES ('Carlos','Fernandes','0192745368-11'),('Joana','Mendonça Costa','0197488374-82'),
+('Silvana','Pereira','9302957482-00'),('Bernardo','Gonçalves','7594837207-12');
 GO
 
 INSERT INTO VEICULO (idEmpresa,idModelo,corVeiculo)
@@ -29,6 +29,14 @@ VALUES (2,2,'15/12/2020','16/12/2020',200),(3,2,'17/11/2020','19/11/2020',300),(
 (4,1,'05/11/2020','05/11/2020',250),(4,1,'10/10/2020','14/10/2020',950),
 (5,4,'21/10/2020','23/10/2020',370),(1,3,'11/10/2020','12/10/2020',450);
 GO
+
+
+INSERT INTO CLIENTE (nome, sobrenome, cnh) VALUES ('Bernardo','Gonçalves','7594837207-12');
+
+SELECT idCliente, nome, sobrenome, cnh FROM CLIENTE WHERE idCliente = 1;
+DELETE FROM CLIENTE WHERE idCliente = 1;
+
+UPDATE CLIENTE SET nome = 'Andre', sobrenome = 'Amaral', cnh = '1837592764-34' WHERE idCliente = 1;
 
 
 /*

@@ -34,6 +34,8 @@ ON MODELO.idModelo = VEICULO.idModelo
 WHERE CLIENTE.idCliente = 2
 
 
+SELECT idCliente, nome, sobrenome, cnh FROM CLIENTE;
+
 
 
 
