@@ -92,9 +92,13 @@ namespace senai_filmes_webAPI.Repositories
                             FilmeDomain filme = new FilmeDomain()
                             {
                                 idFilme = Convert.ToInt32(rdr[0]),
-                                idGenero = Convert.ToInt32(rdr[1]),
+                                //idGenero = Convert.ToInt32(rdr[1]),
                                 tituloFilme = rdr[2].ToString(),
-                                nomeGenero = rdr[3].ToString()
+                                generoFilme =  new GeneroDomain()
+                                {
+                                    //idGenero = Convert.ToInt32(rdr[1]),
+                                    nomeGenero = rdr[3].ToString()
+                                }
                             };
 
                             listaFilmes.Add(filme);
