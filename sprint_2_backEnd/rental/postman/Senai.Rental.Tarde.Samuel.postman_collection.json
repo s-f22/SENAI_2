@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e03da8f0-c155-4001-ad93-0fda230e773d",
+		"_postman_id": "dd1408cc-e9b0-431b-9eb6-a49188f39104",
 		"name": "Senai.Rental.Tarde.Samuel",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -23,6 +23,359 @@
 							"path": [
 								"api",
 								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente.BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/clientes/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"clientes",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente.Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/clientes/excluir/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"clientes",
+								"excluir",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente.Inserir",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nome\": \"Rodolfo\",\r\n        \"sobrenome\": \"Rodrigues\",\r\n        \"cnh\": \"0395738475-99  \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente.AtualizarIdCorpo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"idCliente\": 5,\r\n        \"nome\": \"Leticia\",\r\n        \"sobrenome\": \"Oliveira\",\r\n        \"cnh\": \"8374639274-12  \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Veiculo",
+			"item": [
+				{
+					"name": "Veiculo.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/veiculos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Veiculo.BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/veiculos/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"veiculos",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Veiculo.Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/veiculos/excluir/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"veiculos",
+								"excluir",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Veiculo.Inserir",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idModelo\": 2,\r\n    \"idEmpresa\": 3,\r\n    \"corVeiculo\": \"MARROM\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/veiculos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Veiculo.AtualizarIdCorpo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idVeiculo\": 6,\r\n    \"idModelo\": 1,\r\n    \"idEmpresa\": 2,\r\n    \"corVeiculo\": \"ROXO\",\r\n    \"empresa\": null,\r\n    \"modelo\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/veiculos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Aluguel",
+			"item": [
+				{
+					"name": "Aluguel.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/alugueis",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"alugueis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aluguel.BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/alugueis/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"alugueis",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aluguel.Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/alugueis/excluir/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"alugueis",
+								"excluir",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aluguel.Inserir",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nome\": \"Rodolfo\",\r\n        \"sobrenome\": \"Rodrigues\",\r\n        \"cnh\": \"0395738475-99  \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/alugueis",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"alugueis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aluguel.AtualizarIdCorpo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"idCliente\": 5,\r\n        \"nome\": \"Leticia\",\r\n        \"sobrenome\": \"Oliveira\",\r\n        \"cnh\": \"8374639274-12  \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/alugueis",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"alugueis"
 							]
 						}
 					},

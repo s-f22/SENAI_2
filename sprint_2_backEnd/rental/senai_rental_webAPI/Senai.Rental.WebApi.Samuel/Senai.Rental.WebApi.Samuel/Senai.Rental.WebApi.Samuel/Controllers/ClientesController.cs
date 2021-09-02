@@ -23,6 +23,10 @@ namespace Senai.Rental.WebApi_Samuel.Controllers
             _clienteRepository = new ClienteRepository();
         }
 
+
+
+
+
         [HttpGet]
         public IActionResult Get()
         {
@@ -31,5 +35,85 @@ namespace Senai.Rental.WebApi_Samuel.Controllers
             return Ok(listaClientes);
         }
 
+
+
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            ClienteDomain clienteEncontrado = _clienteRepository.BuscarPorId(id);
+
+            if (clienteEncontrado == null)
+            {
+                return NotFound("Nenhum cliente encontrado");
+            }
+
+            return Ok(clienteEncontrado);
+        }
+
+
+
+
+        [HttpPost]
+        public IActionResult Post(ClienteDomain novoCliente)
+        {
+            _clienteRepository.Inserir(novoCliente);
+
+            return StatusCode(201);
+        }
+
+
+
+
+        [HttpPut]
+        public IActionResult PutIdBody(ClienteDomain clienteAtualizado)
+        {
+            if (clienteAtualizado.nome == null || clienteAtualizado.idCliente < 0)
+            {
+                return BadRequest
+                    (
+                    new
+                        {
+                            mensagemErro = "Nome ou ID do cliente não informado!"
+                        }
+                    );
+            }
+
+            ClienteDomain clienteBuscado = _clienteRepository.BuscarPorId(clienteAtualizado.idCliente);
+
+            if (clienteBuscado != null)
+            {
+                try
+                {
+                    _clienteRepository.Atualizar(clienteAtualizado);
+
+                    return NoContent();
+                }
+                catch (Exception codErro)
+                {
+                    return BadRequest(codErro);
+                }
+            }
+
+            return NotFound(
+                new
+                {
+                    mensagem = "Cliente não encontrado",
+                    errorStatus = true
+                }
+                );
+
+        }
+
+
+
+
+        [HttpDelete("excluir/{id}")]
+        public IActionResult Delete(int id)
+        {
+            _clienteRepository.Deletar(id);
+
+            return NoContent();
+        }
     }
 }

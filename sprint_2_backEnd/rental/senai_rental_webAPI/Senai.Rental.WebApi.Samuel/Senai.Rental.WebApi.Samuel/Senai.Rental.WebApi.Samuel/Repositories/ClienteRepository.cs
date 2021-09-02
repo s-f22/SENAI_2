@@ -11,8 +11,8 @@ namespace Senai.Rental.WebApi_Samuel.Repositories
     public class ClienteRepository : IClienteRepository
     {
 
-        //public const string CONEXAO = "Data Source=NOTE0113C2\\SQLEXPRESS; initial catalog=T_RENTAL_Samuel; user Id=sa; pwd=Senai@132";
-        public const string CONEXAO = "Data Source=PANZERII\\SQLEXPRESS; initial catalog=T_RENTAL_Samuel; user Id=sa; pwd=senai@#132";
+        public const string CONEXAO = "Data Source=NOTE0113C2\\SQLEXPRESS; initial catalog=T_RENTAL_Samuel; user Id=sa; pwd=Senai@132";
+        //public const string CONEXAO = "Data Source=PANZERII\\SQLEXPRESS; initial catalog=T_RENTAL_Samuel; user Id=sa; pwd=senai@#132";
 
 
 
@@ -111,7 +111,7 @@ namespace Senai.Rental.WebApi_Samuel.Repositories
         {
             using (SqlConnection conect = new SqlConnection(CONEXAO))
             {
-                string queryInsert = "INSERT INTO CLIENTE (nome, sobrenome, cnh) VALUES ('@nomeCliente','@sobrenomeCliente','@cnhCliente')";
+                string queryInsert = "INSERT INTO CLIENTE (nome, sobrenome, cnh) VALUES (@nomeCliente,@sobrenomeCliente,@cnhCliente)";
 
                 conect.Open();
 
