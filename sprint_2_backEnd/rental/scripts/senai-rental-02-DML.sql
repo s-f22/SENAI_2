@@ -31,7 +31,7 @@ VALUES (2,2,'15/12/2020','16/12/2020',200),(3,2,'17/11/2020','19/11/2020',300),(
 GO
 
 
-INSERT INTO CLIENTE (nome, sobrenome, cnh) VALUES ('Bernardo','Gonçalves','7594837207-12');
+INSERT INTO CLIENTE (nome, sobrenome, cnh) VALUES ('Bernardo','Gonçalves','7598737207-12');
 
 SELECT idCliente, nome, sobrenome, cnh FROM CLIENTE WHERE idCliente = 1;
 DELETE FROM CLIENTE WHERE idCliente = 1;

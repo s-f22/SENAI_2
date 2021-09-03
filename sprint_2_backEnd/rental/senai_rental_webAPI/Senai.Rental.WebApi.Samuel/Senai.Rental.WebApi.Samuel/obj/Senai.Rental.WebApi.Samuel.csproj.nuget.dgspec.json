@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Werther\\Documents\\SENAI_2\\sprint_2_backEnd\\01_sqlclient\\01_filmes\\senai_filmes_webAPI\\senai_filmes_webAPI\\senai_filmes_webAPI.csproj": {}
+    "C:\\Users\\Werther\\Documents\\SENAI_2\\sprint_2_backEnd\\rental\\senai_rental_webAPI\\Senai.Rental.WebApi.Samuel\\Senai.Rental.WebApi.Samuel\\Senai.Rental.WebApi.Samuel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Werther\\Documents\\SENAI_2\\sprint_2_backEnd\\01_sqlclient\\01_filmes\\senai_filmes_webAPI\\senai_filmes_webAPI\\senai_filmes_webAPI.csproj": {
+    "C:\\Users\\Werther\\Documents\\SENAI_2\\sprint_2_backEnd\\rental\\senai_rental_webAPI\\Senai.Rental.WebApi.Samuel\\Senai.Rental.WebApi.Samuel\\Senai.Rental.WebApi.Samuel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Werther\\Documents\\SENAI_2\\sprint_2_backEnd\\01_sqlclient\\01_filmes\\senai_filmes_webAPI\\senai_filmes_webAPI\\senai_filmes_webAPI.csproj",
-        "projectName": "senai_filmes_webAPI",
-        "projectPath": "C:\\Users\\Werther\\Documents\\SENAI_2\\sprint_2_backEnd\\01_sqlclient\\01_filmes\\senai_filmes_webAPI\\senai_filmes_webAPI\\senai_filmes_webAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Werther\\Documents\\SENAI_2\\sprint_2_backEnd\\rental\\senai_rental_webAPI\\Senai.Rental.WebApi.Samuel\\Senai.Rental.WebApi.Samuel\\Senai.Rental.WebApi.Samuel.csproj",
+        "projectName": "Senai.Rental.WebApi.Samuel",
+        "projectPath": "C:\\Users\\Werther\\Documents\\SENAI_2\\sprint_2_backEnd\\rental\\senai_rental_webAPI\\Senai.Rental.WebApi.Samuel\\Senai.Rental.WebApi.Samuel\\Senai.Rental.WebApi.Samuel.csproj",
         "packagesPath": "C:\\Users\\Werther\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Werther\\Documents\\SENAI_2\\sprint_2_backEnd\\01_sqlclient\\01_filmes\\senai_filmes_webAPI\\senai_filmes_webAPI\\obj\\",
+        "outputPath": "C:\\Users\\Werther\\Documents\\SENAI_2\\sprint_2_backEnd\\rental\\senai_rental_webAPI\\Senai.Rental.WebApi.Samuel\\Senai.Rental.WebApi.Samuel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Werther\\AppData\\Roaming\\NuGet\\NuGet.Config",
