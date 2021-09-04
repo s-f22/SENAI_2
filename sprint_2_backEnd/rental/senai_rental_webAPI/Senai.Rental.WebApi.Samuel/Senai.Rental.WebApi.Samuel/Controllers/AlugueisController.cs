@@ -103,5 +103,16 @@ namespace Senai.Rental.WebApi.Samuel.Controllers
 
 
 
+        [HttpDelete("excluir/{id}")]
+        public IActionResult Delete(int id)
+        {
+            _aluguelRepository.Deletar(id);
+
+            return NoContent();
+        }
+
+
+
+
     }
 }

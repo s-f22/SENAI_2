@@ -29,6 +29,7 @@ namespace Senai.Rental.WebApi.Samuel.Repositories
                         atualizar.Parameters.AddWithValue("@dataRetirada", aluguelAtualizado.dataRetirada);                        
                         atualizar.Parameters.AddWithValue("@dataDevolucao", aluguelAtualizado.dataDevolucao);
                         atualizar.Parameters.AddWithValue("@valorAluguel", aluguelAtualizado.valorAluguel);
+                        atualizar.Parameters.AddWithValue("@idAluguel", aluguelAtualizado.idAluguel);
 
                         conect.Open();
 
