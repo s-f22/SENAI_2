@@ -141,7 +141,24 @@ namespace Senai.Rental.WebApi.Samuel.Repositories
 
             using (SqlConnection conexao = new SqlConnection(CONEXAO))
             {
-                string querySelect = "SELECT idAluguel, idVeiculo, idCliente, dataRetirada, dataDevolucao, valorAluguel FROM ALUGUEL";
+                //string querySelect = "SELECT idAluguel, idVeiculo, idCliente, dataRetirada, dataDevolucao, valorAluguel FROM ALUGUEL";
+
+                string querySelect = @" SELECT ALUGUEL.idAluguel, ALUGUEL.idVeiculo, ALUGUEL.idCliente, ALUGUEL.dataRetirada, ALUGUEL.dataDevolucao, 
+                                        ALUGUEL.valorAluguel, VEICULO.idVeiculo, VEICULO.idModelo, VEICULO.idEmpresa, VEICULO.corVeiculo, 
+                                        CLIENTE.idCliente, CLIENTE.nome, CLIENTE.sobrenome, CLIENTE.cnh,
+                                        EMPRESA.idEmpresa, EMPRESA.nomeEmpresa, MODELO.idModelo, MODELO.idMarca, MODELO.nomeModelo,
+                                        MARCA.idMarca, MARCA.nomeMarca
+                                        FROM ALUGUEL
+                                        INNER JOIN CLIENTE
+                                        ON ALUGUEL.idCliente = CLIENTE.idCliente
+                                        INNER JOIN VEICULO
+                                        ON VEICULO.IdVeiculo = ALUGUEL.idVeiculo
+                                        INNER JOIN MODELO
+                                        ON VEICULO.idModelo = MODELO.idModelo
+                                        INNER JOIN EMPRESA
+                                        ON EMPRESA.idEmpresa = VEICULO.idEmpresa
+                                        INNER JOIN MARCA
+                                        ON MODELO.idMarca = MARCA.idMarca";
 
                 conexao.Open();
 
@@ -156,11 +173,42 @@ namespace Senai.Rental.WebApi.Samuel.Repositories
                         AluguelDomain veiculo = new AluguelDomain()
                         {
                             idAluguel = Convert.ToInt32(reader[0]),
-                            idVeiculo = Convert.ToInt32(reader[1]),
+                            idVeiculo = Convert.ToInt32(reader[1]),                            
                             idCliente = Convert.ToInt32(reader[2]),
                             dataRetirada = Convert.ToDateTime(reader[3]),
                             dataDevolucao = Convert.ToDateTime(reader[4]),
-                            valorAluguel = Convert.ToDouble(reader[5])
+                            valorAluguel = Convert.ToDouble(reader[5]),
+                            veiculo = new VeiculoDomain()
+                            {
+                                idVeiculo = Convert.ToInt32(reader[6]),
+                                idModelo = Convert.ToInt32(reader[7]),
+                                idEmpresa = Convert.ToInt32(reader[8]),
+                                corVeiculo = reader[9].ToString(),
+                                empresa = new EmpresaDomain()
+                                {
+                                    idEmpresa = Convert.ToInt32(reader[14]),
+                                    nomeEmpresa = reader[15].ToString(),
+                                },
+                                modelo = new ModeloDomain()
+                                {
+                                    idModelo = Convert.ToInt32(reader[16]),
+                                    idMarca = Convert.ToInt32(reader[17]),
+                                    nomeModelo = reader[18].ToString(),
+                                    marca = new MarcaDomain()
+                                    {
+                                        idMarca = Convert.ToInt32(reader[19]),
+                                        nomeMarca = reader[20].ToString(),
+                                    }
+                                }
+                            },
+                            cliente = new ClienteDomain()
+                            {
+                                idCliente = Convert.ToInt32(reader[10]),
+                                nome = reader[11].ToString(),
+                                sobrenome = reader[12].ToString(),
+                                cnh = reader[13].ToString(),
+                            },
+
                         };
 
                         listaAlugueis.Add(veiculo);

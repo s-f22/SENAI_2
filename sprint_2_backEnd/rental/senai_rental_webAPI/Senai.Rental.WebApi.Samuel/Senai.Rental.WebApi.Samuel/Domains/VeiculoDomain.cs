@@ -11,8 +11,8 @@ namespace Senai.Rental.WebApi.Samuel.Domains
         public int idModelo { get; set; }
         public int idEmpresa { get; set; }
         public string corVeiculo { get; set; }
-        public EmpresaDomain Empresa { get; set; }
-        public ModeloDomain Modelo { get; set; }
+        public EmpresaDomain empresa { get; set; }
+        public ModeloDomain modelo { get; set; }
 
     }
 }
