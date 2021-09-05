@@ -41,7 +41,25 @@ namespace Senai.Rental.WebApi.Samuel.Controllers
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            ClienteDomain clienteEncontrado = _clienteRepository.BuscarPorId(id);
+            ClienteDomain clienteEncontrado = _clienteRepository.BuscarPor(id);
+
+
+            if (clienteEncontrado == null)
+            {
+                return NotFound("Nenhum cliente encontrado");
+            }
+
+            return Ok(clienteEncontrado);
+        }
+
+
+
+
+        [HttpGet("buscar/{nome}")]
+        public IActionResult GetByName(string nome)
+        {
+            ClienteDomain clienteEncontrado = _clienteRepository.BuscarPor(nome);
+
 
             if (clienteEncontrado == null)
             {
@@ -79,7 +97,7 @@ namespace Senai.Rental.WebApi.Samuel.Controllers
                     );
             }
 
-            ClienteDomain clienteBuscado = _clienteRepository.BuscarPorId(clienteAtualizado.idCliente);
+            ClienteDomain clienteBuscado = _clienteRepository.BuscarPor(clienteAtualizado.idCliente);
 
             if (clienteBuscado != null)
             {

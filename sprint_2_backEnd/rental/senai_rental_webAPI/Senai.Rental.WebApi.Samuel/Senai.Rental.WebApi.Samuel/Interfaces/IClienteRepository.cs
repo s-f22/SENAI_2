@@ -21,7 +21,14 @@ namespace Senai.Rental.WebApi.Samuel.Interfaces
         /// </summary>
         /// <param name="idCliente">id do cliente que será buscado</param>
         /// <returns>Um cliente buscado</returns>
-        ClienteDomain BuscarPorId(int idCliente);
+        ClienteDomain BuscarPor(int idCliente);
+
+        /// <summary>
+        /// Busca um cliente por meio de seu nome
+        /// </summary>
+        /// <param name="nomeCliente">nome do cliente a ser encontrado</param>
+        /// <returns>Um cliente, caso encontrado</returns>
+        ClienteDomain BuscarPor(string nomeCliente);
 
 
         /// <summary>

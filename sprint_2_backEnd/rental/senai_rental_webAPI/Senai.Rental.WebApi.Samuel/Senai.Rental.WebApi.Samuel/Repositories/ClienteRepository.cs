@@ -45,7 +45,7 @@ namespace Senai.Rental.WebApi.Samuel.Repositories
 
 
 
-        public ClienteDomain BuscarPorId(int idCliente)
+        public ClienteDomain BuscarPor(int idCliente)
         {
             using (SqlConnection conect = new SqlConnection(CONEXAO))
             {
@@ -58,6 +58,44 @@ namespace Senai.Rental.WebApi.Samuel.Repositories
                 using (SqlCommand escolher = new SqlCommand(querySelectById, conect))
                 {
                     escolher.Parameters.AddWithValue("@idCliente", idCliente);
+
+                    reader = escolher.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        ClienteDomain clienteEncontrado = new ClienteDomain()
+                        {
+                            idCliente = Convert.ToInt32(reader[0]),
+                            nome = reader[1].ToString(),
+                            sobrenome = reader[2].ToString(),
+                            cnh = reader[3].ToString()
+                        };
+
+                        return clienteEncontrado;
+                    }
+
+                    return null;
+                }
+            }
+        }
+
+
+
+
+
+        public ClienteDomain BuscarPor(string nomeCliente)
+        {
+            using (SqlConnection conect = new SqlConnection(CONEXAO))
+            {
+                string querySelectById = "SELECT idCliente, nome, sobrenome, cnh FROM CLIENTE WHERE nome = @nomeCliente";
+
+                conect.Open();
+
+                SqlDataReader reader;
+
+                using (SqlCommand escolher = new SqlCommand(querySelectById, conect))
+                {
+                    escolher.Parameters.AddWithValue("@nomeCliente", nomeCliente);
 
                     reader = escolher.ExecuteReader();
 
