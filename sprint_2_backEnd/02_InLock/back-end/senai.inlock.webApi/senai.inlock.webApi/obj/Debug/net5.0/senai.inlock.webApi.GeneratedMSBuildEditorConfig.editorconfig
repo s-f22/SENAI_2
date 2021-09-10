@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = senai.inlock.webApi
-build_property.ProjectDir = C:\Users\Werther\Documents\SENAI_2\sprint_2_backEnd\02_InLock\back-end\senai.inlock.webApi\senai.inlock.webApi\
+build_property.ProjectDir = C:\Users\fic\Desktop\SENAI_2\sprint_2_backEnd\02_InLock\back-end\senai.inlock.webApi\senai.inlock.webApi\

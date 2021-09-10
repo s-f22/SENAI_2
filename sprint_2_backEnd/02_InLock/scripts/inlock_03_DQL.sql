@@ -29,3 +29,14 @@ WHERE idJogo = 2;
 
 SELECT nomeEstudio FROM ESTUDIOS
 WHERE idEstudio = 1;
+
+
+UPDATE JOGOS
+SET nomeJogo = 'Diablo 3', descricao = 'É um jogo que contém bastante ação e é viciante, seja você um novato ou um fã', 
+dataLancamento = '15/05/2002', idEstudio = 1, valor = 99.99
+WHERE idJogo = 1;
+
+SELECT * FROM JOGOS
+
+SELECT idJogo, nomeJogo, descricao, dataLancamento, idEstudio, valor FROM JOGOS
+WHERE idJogo = 1

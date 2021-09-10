@@ -8,10 +8,13 @@ namespace senai.inlock.webApi.Interfaces
 {
     interface IUsuarioRepository
     {
-        // Listar todos os usuários;
-        List<UsuarioDomain> ListarTodos();
-
-        // Buscar um usuário por e-mail e senha (login);
+        
+        /// <summary>
+        /// Autentica o usuario atraves de seu email e senha
+        /// </summary>
+        /// <param name="email">Email para realizar o login</param>
+        /// <param name="senha">Senha pessoal do usuario</param>
+        /// <returns>Caso haja um usuario com as informações fornecidas, retorna o usuario encontrado </returns>
         UsuarioDomain Login(string email, string senha);
     }
 }

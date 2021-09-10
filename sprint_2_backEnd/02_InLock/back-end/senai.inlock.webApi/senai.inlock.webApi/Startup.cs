@@ -29,12 +29,11 @@ namespace senai.inlock.webApi
 
             app.UseRouting();
 
+            
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    endpoints.MapControllers();
-                });
+                //Define o mapeamento dos Controllers. LINHA ADICIONADA 2/2
+                endpoints.MapControllers();
             });
         }
     }
