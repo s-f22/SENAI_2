@@ -50,6 +50,28 @@
 					"response": []
 				},
 				{
+					"name": "Cliente.BuscarPorNome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/clientes/buscar/maria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"clientes",
+								"buscar",
+								"maria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Cliente.Deletar",
 					"request": {
 						"method": "DELETE",
@@ -78,7 +100,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"nome\": \"Rodolfo\",\r\n        \"sobrenome\": \"Rodrigues\",\r\n        \"cnh\": \"0395738475-99  \"\r\n}",
+							"raw": "{\r\n        \"nome\": \"Maria\",\r\n        \"sobrenome\": \"Joaquina\",\r\n        \"cnh\": \"0385963792-86  \"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -107,7 +129,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"idCliente\": 5,\r\n        \"nome\": \"Leticia\",\r\n        \"sobrenome\": \"Oliveira\",\r\n        \"cnh\": \"8374639274-12  \"\r\n}",
+							"raw": "{\r\n        \"idCliente\": 4,\r\n        \"nome\": \"Tarcisio\",\r\n        \"sobrenome\": \"Meireles\",\r\n        \"cnh\": \"8834139274-12  \"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -330,7 +352,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"nome\": \"Rodolfo\",\r\n        \"sobrenome\": \"Rodrigues\",\r\n        \"cnh\": \"0395738475-99  \"\r\n}",
+							"raw": "{\r\n    \"idVeiculo\": 4,\r\n    \"idCliente\": 6,\r\n    \"dataRetirada\": \"2019-09-04\",\r\n    \"dataDevolucao\": \"2019-09-09\",\r\n    \"valorAluguel\": 1208.33\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -359,7 +381,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idAluguel\": 4,\r\n    \"idVeiculo\": 3,\r\n    \"idCliente\": 1,\r\n    \"dataRetirada\": \"2012-03-19T07:22Z\",\r\n    \"dataDevolucao\": \"2012-03-19T07:22Z\",\r\n    \"valorAluguel\": 200\r\n}",
+							"raw": "{\r\n    \"idAluguel\": 4,\r\n    \"idVeiculo\": 4,\r\n    \"idCliente\": 6,\r\n    \"dataRetirada\": \"2020-11-04\",\r\n    \"dataDevolucao\": \"2020-11-05\",\r\n    \"valorAluguel\": 205.55\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
