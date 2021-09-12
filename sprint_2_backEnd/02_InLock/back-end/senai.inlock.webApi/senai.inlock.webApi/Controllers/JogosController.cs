@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai.inlock.webApi.Domains;
 using senai.inlock.webApi.Interfaces;
@@ -12,7 +13,7 @@ namespace senai.inlock.webApi.Controllers
 {
     [Produces("application/json")]
 
-
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class JogosController : ControllerBase
@@ -27,6 +28,7 @@ namespace senai.inlock.webApi.Controllers
         }
 
 
+        // ---------------------------------- LISTAR TODOS -----------------------------------------
 
         [HttpGet]
         public IActionResult Get()
@@ -37,7 +39,9 @@ namespace senai.inlock.webApi.Controllers
         }
 
 
-
+        // ---------------------------------- BUSCAR POR ID -----------------------------------------
+        
+        
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -52,7 +56,8 @@ namespace senai.inlock.webApi.Controllers
         }
 
 
-
+        // ---------------------------------- CADASTRAR -----------------------------------------
+        [Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Post(JogoDomain novoJogo)
         {
@@ -63,6 +68,7 @@ namespace senai.inlock.webApi.Controllers
 
 
 
+        // ---------------------------------- ATUALIZAR -----------------------------------------
 
         [HttpPut]
         public IActionResult Put(JogoDomain jogoAtualizado)
@@ -93,6 +99,7 @@ namespace senai.inlock.webApi.Controllers
 
 
 
+        // ---------------------------------- DELETAR -----------------------------------------
 
         [HttpDelete("excluir/{id}")]
         public IActionResult Delete(int id)

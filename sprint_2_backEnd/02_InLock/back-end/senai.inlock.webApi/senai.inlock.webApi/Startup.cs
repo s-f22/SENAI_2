@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,47 @@ namespace senai.inlock.webApi
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //Define o mapeamento dos Controllers. LINHA ADICIONADA 1/5
             services.AddControllers();
+
+            // ------------------------------------- VALIDAÇÃO DO TOKEN 3/5 -----------------------------------------------
+
+            // --- Definindo a forma de autenticação
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = "JwtBearer";    // Esquema de autenticação padrão
+                options.DefaultChallengeScheme = "JwtBearer";       // Define o esquema padrão que faz a verificação entre o token emitido e recebido
+            })
+            // Define os parâmetros de validação do token
+            .AddJwtBearer("JwtBearer", options => 
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    // Valida quem está emitindo o token
+                    ValidateIssuer = true,
+
+                    // Valida qem está recebendo o token
+                    ValidateAudience = true,
+
+                    // Valida o tempo de expiração do token
+                    ValidateLifetime = true,
+                    
+                    //DEFINIÇÃO DOS 4 PARAMETROS QUE VALIDAM O TOKEN:
+                    //Defindo a chave (frase) de segurança
+                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("inLock-chave-webApi-autenticacao")),      
+                    
+                    // Tempo de expiração do token
+                    ClockSkew = TimeSpan.FromMinutes(30),
+
+                    // Define o nome do issuer, ou seja, quem emite o token
+                    ValidIssuer = "inLock.webAPI",
+
+                    // Define o audience, ou seja, quem recebe o token
+                    ValidAudience = "inLock.webAPI"
+                };
+            });
+
+            // ------------------------------------- VALIDAÇÃO DO TOKEN 3/5 -----------------------------------------------
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -29,10 +70,16 @@ namespace senai.inlock.webApi
 
             app.UseRouting();
 
+            //4/5 Habilita a autenticação, 401
+            app.UseAuthentication();
+
+            //5/5 Habilita a autorização, 403
+            app.UseAuthorization();
+
             
             app.UseEndpoints(endpoints =>
             {
-                //Define o mapeamento dos Controllers. LINHA ADICIONADA 2/2
+                //Define o mapeamento dos Controllers. LINHA ADICIONADA 2/5
                 endpoints.MapControllers();
             });
         }

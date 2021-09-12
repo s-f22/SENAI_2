@@ -10,7 +10,8 @@ namespace senai.inlock.webApi.Repositories
 {
     public class JogoRepository : IJogoRepository
     {
-        private const string CONEXAO = "Data Source=NOTE0113C2\\SQLEXPRESS; initial catalog=inlock_games_tarde; user Id=sa; pwd=Senai@132";
+        //private const string CONEXAO = "Data Source=NOTE0113C2\\SQLEXPRESS; initial catalog=inlock_games_tarde; user Id=sa; pwd=Senai@132";
+        private const string CONEXAO = "Data Source=PANZERII\\SQLEXPRESS; initial catalog=inlock_games_tarde; user Id=sa; pwd=senai@#132";
 
 
         public void Atualizar(JogoDomain jogoAtualizado)

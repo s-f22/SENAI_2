@@ -21,7 +21,7 @@ ON j.idEstudio = e.idEstudio;
 
 -- Scripts para os repositories da API --
 
-SELECT email FROM USUARIOS
+SELECT idUsuario, email, senha, idTipoUsuario FROM USUARIOS
 WHERE email = 'admin@admin.com' AND senha = 'admin';
 
 SELECT nomeJogo FROM JOGOS

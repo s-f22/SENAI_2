@@ -1,262 +1,10 @@
 {
 	"info": {
-		"_postman_id": "e874b869-7d17-410d-b6bc-e1198c94ff8a",
+		"_postman_id": "98352255-94a8-4ff1-9507-bf54ebae7aa0",
 		"name": "senai.inlock.webApi",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "Cliente",
-			"item": [
-				{
-					"name": "Cliente.Listar",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:5000/api/clientes",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"clientes"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Cliente.BuscarPorId",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:5000/api/clientes/4",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"clientes",
-								"4"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Cliente.Deletar",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:5000/api/clientes/excluir/8",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"clientes",
-								"excluir",
-								"8"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Cliente.Inserir",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n        \"nome\": \"Rodolfo\",\r\n        \"sobrenome\": \"Rodrigues\",\r\n        \"cnh\": \"0395738475-99  \"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:5000/api/clientes",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"clientes"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Cliente.AtualizarIdCorpo",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n        \"idCliente\": 5,\r\n        \"nome\": \"Leticia\",\r\n        \"sobrenome\": \"Oliveira\",\r\n        \"cnh\": \"8374639274-12  \"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:5000/api/clientes",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"clientes"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Veiculo",
-			"item": [
-				{
-					"name": "Veiculo.Listar",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:5000/api/veiculos",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"veiculos"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Veiculo.BuscarPorId",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:5000/api/veiculos/8",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"veiculos",
-								"8"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Veiculo.Deletar",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:5000/api/veiculos/excluir/7",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"veiculos",
-								"excluir",
-								"7"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Veiculo.Inserir",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"idModelo\": 2,\r\n    \"idEmpresa\": 3,\r\n    \"corVeiculo\": \"MARROM\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:5000/api/veiculos",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"veiculos"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Veiculo.AtualizarIdCorpo",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"idVeiculo\": 7,\r\n    \"idModelo\": 3,\r\n    \"idEmpresa\": 3,\r\n    \"corVeiculo\": \"PRETO\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:5000/api/veiculos",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"veiculos"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
 		{
 			"name": "Jogo",
 			"item": [
@@ -283,6 +31,16 @@
 				{
 					"name": "Jogo.BuscarPorId",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNsaWVudGVAY2xpZW50ZS5jb20iLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMiIsIkNsYWltIHBlcnNvbmFsaXphZGEiOiJWYWxvciBUZXN0ZSIsImV4cCI6MTYzMTQ3NjE5MCwiaXNzIjoiaW5Mb2NrLndlYkFQSSIsImF1ZCI6ImluTG9jay53ZWJBUEkifQ.Mjb1hN581WG3R8SUEBOCd4a14m1FLV7gfz4eMQCvOy4",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -376,6 +134,41 @@
 							"path": [
 								"api",
 								"jogos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Usuario.Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"cliente@cliente.com\",\r\n    \"senha\": \"cliente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/usuarios/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"usuarios",
+								"login"
 							]
 						}
 					},
