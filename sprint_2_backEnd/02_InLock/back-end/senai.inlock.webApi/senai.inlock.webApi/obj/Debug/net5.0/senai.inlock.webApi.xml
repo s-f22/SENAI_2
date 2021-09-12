@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>senai.inlock.webApi</name>
+    </assembly>
+    <members>
+        <member name="M:senai.inlock.webApi.Interfaces.IJogoRepository.Cadastrar(senai.inlock.webApi.Domains.JogoDomain)">
+            <summary>
+            Cadastra um novo jogo
+            </summary>
+            <param name="novoJovo">Objeto com os dados do novo jogo</param>
+        </member>
+        <member name="M:senai.inlock.webApi.Interfaces.IJogoRepository.ListarTodos">
+            <summary>
+            Lista todos os jogos
+            </summary>
+            <returns>Retorna uma lista de jogos</returns>
+        </member>
+        <member name="M:senai.inlock.webApi.Interfaces.IJogoRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Busca um jogo de acordo com o id informado
+            </summary>
+            <param name="idJogo"></param>
+            <returns>Retorna o jogo correspondente so id, caso encontrado</returns>
+        </member>
+        <member name="M:senai.inlock.webApi.Interfaces.IJogoRepository.Atualizar(senai.inlock.webApi.Domains.JogoDomain)">
+            <summary>
+            Atualizada os dados do jogo por meio de um objeto já contendo as informações corretas
+            </summary>
+            <param name="jogoAtualizado">Jogo com as informações corretas</param>
+        </member>
+        <member name="M:senai.inlock.webApi.Interfaces.IJogoRepository.Deletar(System.Int32)">
+            <summary>
+            Excluir um jogo de acordo com o id informado
+            </summary>
+            <param name="idParaExcluir">Id do jogo a excluir</param>
+        </member>
+        <member name="M:senai.inlock.webApi.Interfaces.IUsuarioRepository.Login(System.String,System.String)">
+            <summary>
+            Autentica o usuario atraves de seu email e senha
+            </summary>
+            <param name="email">Email para realizar o login</param>
+            <param name="senha">Senha pessoal do usuario</param>
+            <returns>Caso haja um usuario com as informações fornecidas, retorna o usuario encontrado </returns>
+        </member>
+    </members>
+</doc>
