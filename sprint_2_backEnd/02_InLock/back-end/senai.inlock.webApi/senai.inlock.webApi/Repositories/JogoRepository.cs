@@ -146,7 +146,11 @@ namespace senai.inlock.webApi.Repositories
 
             using (SqlConnection conexao = new SqlConnection(CONEXAO))
             {
-                string querySelect = @"SELECT idJogo, nomeJogo, descricao, dataLancamento, idEstudio, valor FROM JOGOS";
+                //string querySelect = @"SELECT idJogo, nomeJogo, descricao, dataLancamento, idEstudio, valor FROM JOGOS";
+
+                string querySelect = @" SELECT JOGOS.idJogo, JOGOS.nomeJogo, JOGOS.descricao, JOGOS.dataLancamento, JOGOS.idEstudio, JOGOS.valor, ESTUDIOS.idEstudio, ESTUDIOS.nomeEstudio FROM JOGOS
+                                        INNER JOIN ESTUDIOS
+                                        ON JOGOS.idEstudio = ESTUDIOS.idEstudio";
 
                 conexao.Open();
 
@@ -165,9 +169,15 @@ namespace senai.inlock.webApi.Repositories
                             descricao = reader[2].ToString(),
                             dataLancamento = Convert.ToDateTime(reader[3]),
                             idEstudio = Convert.ToInt32(reader[4]),
-                            valor = Convert.ToDouble(reader[5])
+                            valor = Convert.ToDouble(reader[5]),                                                        
+                            estudio = new EstudioDomain()
+                            {
+                                idEstudio = Convert.ToInt32(reader[6]),
+                                nomeEstudio = reader[7].ToString()
+                            }
                         };
 
+                    
                         listaJogos.Add(jogo);
                     }
                 }

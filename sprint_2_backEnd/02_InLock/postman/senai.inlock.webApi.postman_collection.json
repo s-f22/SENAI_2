@@ -6,11 +6,21 @@
 	},
 	"item": [
 		{
-			"name": "Jogo",
+			"name": "Jogos",
 			"item": [
 				{
-					"name": "Jogo.Listar",
+					"name": "Jogos.Listar",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNsaWVudGVAY2xpZW50ZS5jb20iLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMiIsIkNsYWltIHBlcnNvbmFsaXphZGEiOiJWYWxvciBUZXN0ZSIsImV4cCI6MTYzMTQ4MDE0OSwiaXNzIjoiaW5Mb2NrLndlYkFQSSIsImF1ZCI6ImluTG9jay53ZWJBUEkifQ.qs6_GCXupWYJ2jaBSCQib-G3MPceduhQqMntvilLdHc",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -29,7 +39,7 @@
 					"response": []
 				},
 				{
-					"name": "Jogo.BuscarPorId",
+					"name": "Jogos.BuscarPorId",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -60,7 +70,7 @@
 					"response": []
 				},
 				{
-					"name": "Jogo.Deletar",
+					"name": "Jogos.Deletar",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -82,8 +92,18 @@
 					"response": []
 				},
 				{
-					"name": "Jogo.Cadastrar",
+					"name": "Jogos.Cadastrar",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNsaWVudGVAY2xpZW50ZS5jb20iLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMiIsIkNsYWltIHBlcnNvbmFsaXphZGEiOiJWYWxvciBUZXN0ZSIsImV4cCI6MTYzMTQ4MDE0OSwiaXNzIjoiaW5Mb2NrLndlYkFQSSIsImF1ZCI6ImluTG9jay53ZWJBUEkifQ.qs6_GCXupWYJ2jaBSCQib-G3MPceduhQqMntvilLdHc",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -111,7 +131,7 @@
 					"response": []
 				},
 				{
-					"name": "Jogo.AtualizarIdCorpo",
+					"name": "Jogos.AtualizarIdCorpo",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -142,10 +162,10 @@
 			]
 		},
 		{
-			"name": "Usuario",
+			"name": "Usuarios",
 			"item": [
 				{
-					"name": "Usuario.Login",
+					"name": "Usuarios.Login",
 					"request": {
 						"method": "POST",
 						"header": [],

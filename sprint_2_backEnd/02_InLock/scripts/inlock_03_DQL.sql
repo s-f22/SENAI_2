@@ -30,6 +30,10 @@ WHERE idJogo = 2;
 SELECT nomeEstudio FROM ESTUDIOS
 WHERE idEstudio = 1;
 
+SELECT JOGOS.idJogo, JOGOS.nomeJogo, JOGOS.descricao, JOGOS.dataLancamento,JOGOS.idEstudio, JOGOS.valor, ESTUDIOS.idEstudio, ESTUDIOS.nomeEstudio FROM JOGOS
+INNER JOIN ESTUDIOS
+ON JOGOS.idEstudio = ESTUDIOS.idEstudio
+
 
 UPDATE JOGOS
 SET nomeJogo = 'Diablo 3', descricao = 'É um jogo que contém bastante ação e é viciante, seja você um novato ou um fã', 
