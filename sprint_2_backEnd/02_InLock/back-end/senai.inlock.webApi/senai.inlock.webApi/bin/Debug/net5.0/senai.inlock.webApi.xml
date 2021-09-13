@@ -8,7 +8,7 @@
             <summary>
             Cadastra um novo jogo
             </summary>
-            <param name="novoJovo">Objeto com os dados do novo jogo</param>
+            <param name="novoJogo">Objeto com os dados do novo jogo</param>
         </member>
         <member name="M:senai.inlock.webApi.Interfaces.IJogoRepository.ListarTodos">
             <summary>

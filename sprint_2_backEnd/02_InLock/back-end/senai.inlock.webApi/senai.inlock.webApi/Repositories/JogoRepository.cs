@@ -174,7 +174,7 @@ namespace senai.inlock.webApi.Repositories
                             {
                                 idEstudio = Convert.ToInt32(reader[6]),
                                 nomeEstudio = reader[7].ToString()
-                            }
+                            }                          
                         };
 
                     

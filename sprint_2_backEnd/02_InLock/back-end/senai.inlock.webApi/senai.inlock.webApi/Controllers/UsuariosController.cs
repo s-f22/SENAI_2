@@ -45,7 +45,7 @@ namespace senai.inlock.webApi.Controllers
                 new Claim(JwtRegisteredClaimNames.Email, usuarioEncontrado.email),
                 new Claim(JwtRegisteredClaimNames.Jti, usuarioEncontrado.idUsuario.ToString()),
                 new Claim(ClaimTypes.Role, usuarioEncontrado.idTipoUsuario.ToString()),
-                new Claim("Claim personalizada", "Valor Teste")
+                //new Claim("Claim personalizada", "Valor Teste")
             };
 
             //Define a chave de acesso ao token

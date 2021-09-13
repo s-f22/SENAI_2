@@ -13,7 +13,7 @@ namespace senai.inlock.webApi.Interfaces
         /// <summary>
         /// Cadastra um novo jogo
         /// </summary>
-        /// <param name="novoJovo">Objeto com os dados do novo jogo</param>
+        /// <param name="novoJogo">Objeto com os dados do novo jogo</param>
         void Cadastrar(JogoDomain novoJogo);
 
 
