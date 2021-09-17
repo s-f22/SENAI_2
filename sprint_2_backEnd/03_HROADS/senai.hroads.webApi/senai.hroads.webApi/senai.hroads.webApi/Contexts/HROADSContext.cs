@@ -21,7 +21,7 @@ namespace senai.hroads.webApi.Contexts
         public virtual DbSet<Classe> Classes { get; set; }
         public virtual DbSet<ClasseHabilidade> ClasseHabilidades { get; set; }
         public virtual DbSet<Habilidade> Habilidades { get; set; }
-        public virtual DbSet<Personagem> Personagems { get; set; }
+        public virtual DbSet<Personagem> Personagens { get; set; }
         public virtual DbSet<TipoHabilidade> TipoHabilidades { get; set; }
         public virtual DbSet<TipoUsuario> TipoUsuarios { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
@@ -30,19 +30,19 @@ namespace senai.hroads.webApi.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-GBQM7GO\\SQLEXPRESS; initial catalog=SENAI_HROADS_TARDE; user id=sa; pwd=senai@132;");
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Data Source=NOTE0113C2\\SQLEXPRESS; initial catalog=SENAI_HROADS_TARDE; user id=sa; pwd=Senai@132;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Japanese_CI_AS");
+            modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AS");
 
             modelBuilder.Entity<Classe>(entity =>
             {
                 entity.HasKey(e => e.IdClasse)
-                    .HasName("PK__classe__60FFF801464757F4");
+                    .HasName("PK__classe__60FFF80101150683");
 
                 entity.ToTable("classe");
 
@@ -59,29 +59,34 @@ namespace senai.hroads.webApi.Contexts
 
             modelBuilder.Entity<ClasseHabilidade>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.IdClasseHabilidade)
+                    .HasName("PK__classe_h__9359431AEEFE2313");
 
                 entity.ToTable("classe_habilidade");
+
+                entity.Property(e => e.IdClasseHabilidade)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("idClasse_habilidade");
 
                 entity.Property(e => e.IdClasse).HasColumnName("idClasse");
 
                 entity.Property(e => e.IdHabilidade).HasColumnName("idHabilidade");
 
                 entity.HasOne(d => d.IdClasseNavigation)
-                    .WithMany()
+                    .WithMany(p => p.ClasseHabilidades)
                     .HasForeignKey(d => d.IdClasse)
-                    .HasConstraintName("FK__classe_ha__idCla__4222D4EF");
+                    .HasConstraintName("FK__classe_ha__idCla__30F848ED");
 
                 entity.HasOne(d => d.IdHabilidadeNavigation)
-                    .WithMany()
+                    .WithMany(p => p.ClasseHabilidades)
                     .HasForeignKey(d => d.IdHabilidade)
-                    .HasConstraintName("FK__classe_ha__idHab__4316F928");
+                    .HasConstraintName("FK__classe_ha__idHab__31EC6D26");
             });
 
             modelBuilder.Entity<Habilidade>(entity =>
             {
                 entity.HasKey(e => e.IdHabilidade)
-                    .HasName("PK__habilida__655F7528A612BCEB");
+                    .HasName("PK__habilida__655F7528AB1927E4");
 
                 entity.ToTable("habilidade");
 
@@ -100,13 +105,13 @@ namespace senai.hroads.webApi.Contexts
                 entity.HasOne(d => d.IdTipoNavigation)
                     .WithMany(p => p.Habilidades)
                     .HasForeignKey(d => d.IdTipo)
-                    .HasConstraintName("FK__habilidad__idTip__3E52440B");
+                    .HasConstraintName("FK__habilidad__idTip__2C3393D0");
             });
 
             modelBuilder.Entity<Personagem>(entity =>
             {
                 entity.HasKey(e => e.IdPersonagem)
-                    .HasName("PK__personag__E175C72EE7F1409D");
+                    .HasName("PK__personag__E175C72E24A272F5");
 
                 entity.ToTable("personagem");
 
@@ -143,13 +148,13 @@ namespace senai.hroads.webApi.Contexts
                 entity.HasOne(d => d.IdClasseNavigation)
                     .WithMany(p => p.Personagems)
                     .HasForeignKey(d => d.IdClasse)
-                    .HasConstraintName("FK__personage__idCla__45F365D3");
+                    .HasConstraintName("FK__personage__idCla__34C8D9D1");
             });
 
             modelBuilder.Entity<TipoHabilidade>(entity =>
             {
                 entity.HasKey(e => e.IdTipo)
-                    .HasName("PK__tipoHabi__BDD0DFE15785B552");
+                    .HasName("PK__tipoHabi__BDD0DFE1B9BB3DA9");
 
                 entity.ToTable("tipoHabilidade");
 
@@ -167,7 +172,7 @@ namespace senai.hroads.webApi.Contexts
             modelBuilder.Entity<TipoUsuario>(entity =>
             {
                 entity.HasKey(e => e.IdTipoUsuario)
-                    .HasName("PK__tipoUsua__03006BFF96C66298");
+                    .HasName("PK__tipoUsua__03006BFF97719F3E");
 
                 entity.ToTable("tipoUsuario");
 
@@ -183,11 +188,11 @@ namespace senai.hroads.webApi.Contexts
             modelBuilder.Entity<Usuario>(entity =>
             {
                 entity.HasKey(e => e.IdUsuario)
-                    .HasName("PK__usuario__645723A69BF4CB4A");
+                    .HasName("PK__usuario__645723A680E4CC4E");
 
                 entity.ToTable("usuario");
 
-                entity.HasIndex(e => e.Email, "UQ__usuario__AB6E6164AF34A17D")
+                entity.HasIndex(e => e.Email, "UQ__usuario__AB6E6164EC60870B")
                     .IsUnique();
 
                 entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
@@ -215,7 +220,7 @@ namespace senai.hroads.webApi.Contexts
                 entity.HasOne(d => d.IdTipoUsuarioNavigation)
                     .WithMany(p => p.Usuarios)
                     .HasForeignKey(d => d.IdTipoUsuario)
-                    .HasConstraintName("FK__usuario__idTipoU__398D8EEE");
+                    .HasConstraintName("FK__usuario__idTipoU__276EDEB3");
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace senai.hroads.webApi.Interfaces
 {
-    interface IClasseClasseHabilidadeRepository
+    interface IClasseHabilidadeRepository
     {
         /// <summary>
         /// Lista todas as classes e habilidades
@@ -30,8 +30,8 @@ namespace senai.hroads.webApi.Interfaces
         /// <summary>
         /// Atualiza uma ClasseHabilidade existente
         /// </summary>
-        /// <param name="habilidadeAtualizada">Uma ClasseHabilidade atualizada</param>
-        void Atualizar(ClasseHabilidade habilidadeAtualizada);
+        /// <param name="classeHabilidadeAtualizada">Uma ClasseHabilidade atualizada</param>
+        void Atualizar(ClasseHabilidade classeHabilidadeAtualizada);
 
         /// <summary>
         /// Deleta uma ClasseHabilidade através de um id

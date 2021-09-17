@@ -7,6 +7,7 @@ namespace senai.hroads.webApi.Domains
 {
     public partial class ClasseHabilidade
     {
+        public byte IdClasseHabilidade { get; set; }
         public byte? IdClasse { get; set; }
         public byte? IdHabilidade { get; set; }
 

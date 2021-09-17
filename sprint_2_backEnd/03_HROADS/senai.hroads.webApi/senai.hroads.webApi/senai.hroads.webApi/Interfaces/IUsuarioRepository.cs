@@ -38,5 +38,14 @@ namespace senai.hroads.webApi.Interfaces
         /// </summary>
         /// <param name="id">id do usuário que será deletado</param>
         void Deletar(int id);
+
+
+        /// <summary>
+        /// Autentica o usuario por meio de seu email e senha
+        /// </summary>
+        /// <param name="email">Email do usuario</param>
+        /// <param name="senha">Senha do usuario</param>
+        /// <returns>Um usuario autenticado, caso corresponda a um registro do BD </returns>
+        Usuario Login(string email, string senha);
     }
 }

@@ -24,9 +24,10 @@ VALUES (1,1),(1,2),(2,2),(3,1),(4,3),(4,2),(5,NULL),(6,3),(7,NULL);
 GO
 
 INSERT INTO personagem (idClasse, nomePersonagem, vidaMax, manaMax, dataCriacao, dataAtualizacao)
-VALUES (1,'DeuBug',100,80,'2019/01/18', GETDATE()),(4,'BitBug',70,100,'2016/03/17',GETDATE()),
-(7,'Fer8',75,60,'2018/03/18',GETDATE());
+VALUES (1,'DeuBug',100,80,'18/01/2019', GETDATE()),(4,'BitBug',70,100,'17/03/2016',GETDATE()),
+(7,'Fer8',75,60,'18/03/2018',GETDATE());
 GO
+
 
 SELECT * FROM personagem;
 

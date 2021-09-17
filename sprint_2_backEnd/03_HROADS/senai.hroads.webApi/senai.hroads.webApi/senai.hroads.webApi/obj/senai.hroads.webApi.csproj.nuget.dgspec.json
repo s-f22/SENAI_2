@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pedro\\Desktop\\SENAI_2\\sprint_2_backEnd\\03_HROADS\\senai.hroads.webApi\\senai.hroads.webApi\\senai.hroads.webApi\\senai.hroads.webApi.csproj": {}
+    "C:\\Users\\fic\\Desktop\\SENAI_2\\sprint_2_backEnd\\03_HROADS\\senai.hroads.webApi\\senai.hroads.webApi\\senai.hroads.webApi\\senai.hroads.webApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pedro\\Desktop\\SENAI_2\\sprint_2_backEnd\\03_HROADS\\senai.hroads.webApi\\senai.hroads.webApi\\senai.hroads.webApi\\senai.hroads.webApi.csproj": {
+    "C:\\Users\\fic\\Desktop\\SENAI_2\\sprint_2_backEnd\\03_HROADS\\senai.hroads.webApi\\senai.hroads.webApi\\senai.hroads.webApi\\senai.hroads.webApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pedro\\Desktop\\SENAI_2\\sprint_2_backEnd\\03_HROADS\\senai.hroads.webApi\\senai.hroads.webApi\\senai.hroads.webApi\\senai.hroads.webApi.csproj",
+        "projectUniqueName": "C:\\Users\\fic\\Desktop\\SENAI_2\\sprint_2_backEnd\\03_HROADS\\senai.hroads.webApi\\senai.hroads.webApi\\senai.hroads.webApi\\senai.hroads.webApi.csproj",
         "projectName": "senai.hroads.webApi",
-        "projectPath": "C:\\Users\\Pedro\\Desktop\\SENAI_2\\sprint_2_backEnd\\03_HROADS\\senai.hroads.webApi\\senai.hroads.webApi\\senai.hroads.webApi\\senai.hroads.webApi.csproj",
-        "packagesPath": "C:\\Users\\Pedro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pedro\\Desktop\\SENAI_2\\sprint_2_backEnd\\03_HROADS\\senai.hroads.webApi\\senai.hroads.webApi\\senai.hroads.webApi\\obj\\",
+        "projectPath": "C:\\Users\\fic\\Desktop\\SENAI_2\\sprint_2_backEnd\\03_HROADS\\senai.hroads.webApi\\senai.hroads.webApi\\senai.hroads.webApi\\senai.hroads.webApi.csproj",
+        "packagesPath": "C:\\Users\\fic\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fic\\Desktop\\SENAI_2\\sprint_2_backEnd\\03_HROADS\\senai.hroads.webApi\\senai.hroads.webApi\\senai.hroads.webApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\fic\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -55,6 +59,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.10, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.12.2, )"
             }
           },
           "imports": [
