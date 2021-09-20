@@ -15,10 +15,11 @@ namespace senai.hroads.webApi.Repositories
 
         public void Atualizar(Usuario usuarioAtualizado)
         {
-            Usuario usuarioBuscado = ctx.Usuarios.Find(usuarioAtualizado);
+            Usuario usuarioBuscado = ctx.Usuarios.Find(usuarioAtualizado.IdUsuario);
 
             if (usuarioBuscado != null)
             {
+                usuarioBuscado.IdUsuario = usuarioAtualizado.IdUsuario;
                 usuarioBuscado.Nickname = usuarioAtualizado.Nickname;
                 usuarioBuscado.Email = usuarioAtualizado.Email;
                 usuarioBuscado.Senha = usuarioAtualizado.Senha;
@@ -36,7 +37,7 @@ namespace senai.hroads.webApi.Repositories
 
         public Usuario BuscarPorId(int id)
         {
-           return ctx.Usuarios.FirstOrDefault(e => e.IdUsuario == id);
+           return ctx.Usuarios.Include(u => u.IdTipoUsuarioNavigation).FirstOrDefault(e => e.IdUsuario == id);
         }
 
 
@@ -65,7 +66,7 @@ namespace senai.hroads.webApi.Repositories
 
         public List<Usuario> ListarTodos()
         {
-            return ctx.Usuarios.ToList();
+            return ctx.Usuarios.Include(u => u.IdTipoUsuarioNavigation).ToList();
         }
 
 
