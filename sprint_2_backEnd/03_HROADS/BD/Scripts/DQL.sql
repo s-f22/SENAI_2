@@ -83,3 +83,11 @@ GO
 
 SELECT COUNT(*) AS NumeroDeHabilidades FROM habilidade
 GO
+
+select * from usuario;
+select * from tipoUsuario;
+select * from tipoHabilidade;
+select * from personagem;
+select * from habilidade;
+select * from classe_habilidade;
+select * from classe;

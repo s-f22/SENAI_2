@@ -1,4 +1,5 @@
-﻿using senai.hroads.webApi.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using senai.hroads.webApi.Contexts;
 using senai.hroads.webApi.Domains;
 using senai.hroads.webApi.Interfaces;
 using System;
@@ -29,10 +30,18 @@ namespace senai.hroads.webApi.Repositories
 
         }
 
+
+
+
+
         public Usuario BuscarPorId(int id)
         {
            return ctx.Usuarios.FirstOrDefault(e => e.IdUsuario == id);
         }
+
+
+
+
 
         public void Cadastrar(Usuario novoUsuario)
         {
@@ -40,20 +49,32 @@ namespace senai.hroads.webApi.Repositories
             ctx.SaveChanges();
         }
 
+
+
+
+
         public void Deletar(int id)
         {
             ctx.Usuarios.Remove(BuscarPorId(id));
             ctx.SaveChanges();
         }
 
+
+
+
+
         public List<Usuario> ListarTodos()
         {
             return ctx.Usuarios.ToList();
         }
 
+
+
+
+
         public Usuario Login(string email, string senha)
-        {            
-            return ctx.Usuarios.FirstOrDefault(e => e.Email == email && e.Senha == senha);
+        {
+            return ctx.Usuarios.Include(u => u.IdTipoUsuarioNavigation).FirstOrDefault(e => e.Email == email && e.Senha == senha);
         }
     }
 }

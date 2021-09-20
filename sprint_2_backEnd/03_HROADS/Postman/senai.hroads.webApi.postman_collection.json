@@ -1,0 +1,43 @@
+{
+	"info": {
+		"_postman_id": "8f26e12b-363e-4520-91ab-53074de52028",
+		"name": "senai.hroads.webApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Logins",
+			"item": [
+				{
+					"name": "Logins.Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"jogador@jogador.com\",\r\n    \"senha\": \"jogador\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/logins",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"logins"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

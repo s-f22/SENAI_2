@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace senai.hroads.webApi.Controllers
 {
@@ -13,5 +8,8 @@ namespace senai.hroads.webApi.Controllers
     [ApiController]
     public class UsuariosController : ControllerBase
     {
+        
+
+
     }
 }
