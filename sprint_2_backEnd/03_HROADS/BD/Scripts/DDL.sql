@@ -21,7 +21,7 @@ GO
 
 CREATE TABLE tipoHabilidade (
 idTipo TINYINT PRIMARY KEY IDENTITY (1,1),
-nomeTipo VARCHAR (10) NOT NULL
+nomeTipo VARCHAR (30) NOT NULL
 );
 GO
 

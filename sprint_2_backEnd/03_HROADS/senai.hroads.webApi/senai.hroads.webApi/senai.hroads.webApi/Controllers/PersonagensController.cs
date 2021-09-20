@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using senai.hroads.webApi.Domains;
 using senai.hroads.webApi.Interfaces;
 using senai.hroads.webApi.Repositories;
@@ -9,6 +10,8 @@ namespace senai.hroads.webApi.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
+
+    
     public class PersonagensController : ControllerBase
     {
 
@@ -19,6 +22,7 @@ namespace senai.hroads.webApi.Controllers
             _personagemRepository = new PersonagemRepository();
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Listar()
         {
@@ -31,6 +35,7 @@ namespace senai.hroads.webApi.Controllers
             return Ok(_personagemRepository.BuscarPorId(idPersonagem));
         }
 
+        [Authorize(Roles = "Jogador")]
         [HttpPost]
         public IActionResult Cadastrar(Personagem novoPersonagem)
         {

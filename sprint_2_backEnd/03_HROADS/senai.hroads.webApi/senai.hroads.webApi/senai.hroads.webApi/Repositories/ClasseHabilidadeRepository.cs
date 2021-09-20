@@ -1,10 +1,9 @@
-﻿using senai.hroads.webApi.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using senai.hroads.webApi.Contexts;
 using senai.hroads.webApi.Domains;
 using senai.hroads.webApi.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace senai.hroads.webApi.Repositories
 {
@@ -14,7 +13,7 @@ namespace senai.hroads.webApi.Repositories
 
         public void Atualizar(ClasseHabilidade classeHabilidadeAtualizada)
         {
-            ClasseHabilidade classeHabilidadeBuscada = ctx.ClasseHabilidades.Find(classeHabilidadeAtualizada);
+            ClasseHabilidade classeHabilidadeBuscada = ctx.ClasseHabilidades.Find(classeHabilidadeAtualizada.IdClasseHabilidade);
 
             if (classeHabilidadeBuscada != null)
             {
@@ -28,7 +27,7 @@ namespace senai.hroads.webApi.Repositories
 
         public ClasseHabilidade BuscarPorId(int id)
         {
-            return ctx.ClasseHabilidades.FirstOrDefault(e => e.IdClasseHabilidade == id);
+            return ctx.ClasseHabilidades.Include(c => c.IdClasseNavigation).Include(d => d.IdHabilidadeNavigation).FirstOrDefault(e => e.IdClasseHabilidade == id);
         }
 
         public void Cadastrar(ClasseHabilidade novaClasseHabilidade)
@@ -45,7 +44,7 @@ namespace senai.hroads.webApi.Repositories
 
         public List<ClasseHabilidade> ListarTodas()
         {
-            return ctx.ClasseHabilidades.ToList();
+            return ctx.ClasseHabilidades.Include(c => c.IdClasseNavigation).Include(d => d.IdHabilidadeNavigation).ToList();
         }
     }
 }

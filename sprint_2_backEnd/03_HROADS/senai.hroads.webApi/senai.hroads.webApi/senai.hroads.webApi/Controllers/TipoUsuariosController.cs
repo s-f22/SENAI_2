@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using senai.hroads.webApi.Domains;
 using senai.hroads.webApi.Interfaces;
 using senai.hroads.webApi.Repositories;
@@ -9,6 +10,9 @@ namespace senai.hroads.webApi.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
+
+    [Authorize(Roles = "Administrador")]
+
     public class TipoUsuariosController : ControllerBase
     {
 

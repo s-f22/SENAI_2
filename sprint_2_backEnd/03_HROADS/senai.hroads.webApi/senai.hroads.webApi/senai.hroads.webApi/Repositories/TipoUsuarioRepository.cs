@@ -14,7 +14,7 @@ namespace senai.hroads.webApi.Repositories
 
         public void Atualizar(TipoUsuario tipoUsuarioAtualizado)
         {
-            TipoUsuario tipoUsuarioBuscado = ctx.TipoUsuarios.Find(tipoUsuarioAtualizado);
+            TipoUsuario tipoUsuarioBuscado = ctx.TipoUsuarios.Find(tipoUsuarioAtualizado.IdTipoUsuario);
 
             if (tipoUsuarioBuscado != null)
             {

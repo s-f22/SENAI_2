@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using senai.hroads.webApi.Domains;
 using senai.hroads.webApi.Interfaces;
 using senai.hroads.webApi.Repositories;
@@ -9,6 +10,9 @@ namespace senai.hroads.webApi.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
+
+    [Authorize(Roles = "Administrador")]
+
     public class UsuariosController : ControllerBase
     {
         private IUsuarioRepository _usuarioRepository { get; set; }
@@ -19,7 +23,7 @@ namespace senai.hroads.webApi.Controllers
         }
 
 
-
+        
         [HttpGet]
         public IActionResult Listar()
         {
@@ -28,7 +32,7 @@ namespace senai.hroads.webApi.Controllers
 
 
 
-
+        
         [HttpGet("{idUsuario}")]
         public IActionResult BuscarPorId(int idUsuario)
         {

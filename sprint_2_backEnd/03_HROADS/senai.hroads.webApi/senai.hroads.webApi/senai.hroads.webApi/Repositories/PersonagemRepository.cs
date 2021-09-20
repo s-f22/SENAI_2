@@ -1,10 +1,9 @@
-﻿using senai.hroads.webApi.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using senai.hroads.webApi.Contexts;
 using senai.hroads.webApi.Domains;
 using senai.hroads.webApi.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace senai.hroads.webApi.Repositories
 {
@@ -14,7 +13,7 @@ namespace senai.hroads.webApi.Repositories
 
         public void Atualizar(Personagem personagemAtualizado)
         {
-            Personagem personagemBuscado = ctx.Personagens.Find(personagemAtualizado);
+            Personagem personagemBuscado = ctx.Personagens.Find(personagemAtualizado.IdPersonagem);
 
             if (personagemBuscado != null)
             {
@@ -32,7 +31,7 @@ namespace senai.hroads.webApi.Repositories
 
         public Personagem BuscarPorId(int id)
         {
-            return ctx.Personagens.FirstOrDefault(e => e.IdPersonagem == id);
+            return ctx.Personagens.Include(u => u.IdClasseNavigation).FirstOrDefault(e => e.IdPersonagem == id);
         }
 
         public void Cadastrar(Personagem novoPersonagem)
@@ -49,7 +48,7 @@ namespace senai.hroads.webApi.Repositories
 
         public List<Personagem> ListarTodos()
         {
-            return ctx.Personagens.ToList();
+            return ctx.Personagens.Include(u => u.IdClasseNavigation).ToList();
         }
     }
 }
