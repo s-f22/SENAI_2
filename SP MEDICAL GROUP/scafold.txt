@@ -1,0 +1,3 @@
+Utilizar o comando para realizar a criação dos Domains e do Contexto
+
+Scaffold-DbContext "Data Source=DESKTOP-30RGV41\SQLEXPRESS; Initial Catalog=GUFI_TARDE; user id=sa; pwd=senai@132;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Domains -ContextDir Context -Context GufiContext
