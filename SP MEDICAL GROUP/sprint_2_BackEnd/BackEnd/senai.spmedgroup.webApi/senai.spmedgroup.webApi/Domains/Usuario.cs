@@ -20,6 +20,7 @@ namespace senai.spmedgroup.webApi.Domains
         public string Senha { get; set; }
 
         public virtual TipoUsuario IdTipoUsuarioNavigation { get; set; }
+        public virtual ImagemUsuario ImagemUsuario { get; set; }
         public virtual ICollection<Medico> Medicos { get; set; }
         public virtual ICollection<Paciente> Pacientes { get; set; }
     }

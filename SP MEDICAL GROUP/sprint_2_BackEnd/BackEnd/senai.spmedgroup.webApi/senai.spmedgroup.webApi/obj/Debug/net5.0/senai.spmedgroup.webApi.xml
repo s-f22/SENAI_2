@@ -4,5 +4,80 @@
         <name>senai.spmedgroup.webApi</name>
     </assembly>
     <members>
+        <member name="M:senai.spmedgroup.webApi.Controllers.ConsultasController.Listar">
+            <summary>
+            Lista todas as consultas
+            </summary>
+            <returns>Status Code 200 - OK, com todas as consultas cadastradas</returns>
+        </member>
+        <member name="M:senai.spmedgroup.webApi.Controllers.ConsultasController.BuscarPorID(System.Int32)">
+            <summary>
+            Lista uma consulta por meio de seu Id
+            </summary>
+            <param name="idConsulta">Id da consulta que deseja visualizar</param>
+            <returns>Status Code 200 - OK, com a consulta correspondente ao Id informado</returns>
+        </member>
+        <member name="M:senai.spmedgroup.webApi.Controllers.ConsultasController.Cadastrar(senai.spmedgroup.webApi.Domains.Consulta)">
+            <summary>
+            Cadastra uma nova consulta
+            </summary>
+            <param name="novaConsulta">Consulta com informações atualizadas</param>
+            <returns>Status Code 201 - Created, Confirmação padrao</returns>
+        </member>
+        <member name="M:senai.spmedgroup.webApi.Controllers.ConsultasController.Atualizar(System.Int32,senai.spmedgroup.webApi.Domains.Consulta)">
+            <summary>
+            Atualiza dados de uma consulta existente, localizando-a por seu Id
+            </summary>
+            <param name="idConsulta">Id da consulta que deja atualizar</param>
+            <param name="consultaAtualizada">Consulta com dados atualizados</param>
+            <returns>Status Code 204 - Sucesso</returns>
+        </member>
+        <member name="M:senai.spmedgroup.webApi.Controllers.ConsultasController.Deletar(System.Int32)">
+            <summary>
+            Exclui uma consulta do banco de dados
+            </summary>
+            <param name="id">Id correspondente a consulta que deseja excluir</param>
+            <returns>Status Code 204 - Sucesso</returns>
+        </member>
+        <member name="M:senai.spmedgroup.webApi.Interfaces.IConsultaRepository.ListarTodas">
+            <summary>
+            Lista todos as consultas
+            </summary>
+            <returns>Uma lista de consultas</returns>
+        </member>
+        <member name="M:senai.spmedgroup.webApi.Interfaces.IConsultaRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Busca uma consulta através do ID
+            </summary>
+            <param name="idConsulta">ID da consulta que será buscada</param>
+            <returns>Uma consulta buscada</returns>
+        </member>
+        <member name="M:senai.spmedgroup.webApi.Interfaces.IConsultaRepository.Cadastrar(senai.spmedgroup.webApi.Domains.Consulta)">
+            <summary>
+            Cadastra uma nova consulta
+            </summary>
+            <param name="novaConsulta">Objeto novaConsulta que será cadastrada</param>
+        </member>
+        <member name="M:senai.spmedgroup.webApi.Interfaces.IConsultaRepository.Atualizar(System.Int32,senai.spmedgroup.webApi.Domains.Consulta)">
+            <summary>
+            Atualiza uma consulta existente
+            </summary>
+            <param name="id">ID da consulta que será atualizada</param>
+            <param name="consultaAtualizada">Objeto com as novas informações</param>
+        </member>
+        <member name="M:senai.spmedgroup.webApi.Interfaces.IConsultaRepository.Deletar(System.Int32)">
+            <summary>
+            Deleta uma consulta existente
+            </summary>
+            <param name="idConsulta">ID da consulta que será deletada</param>
+        </member>
+        <member name="M:senai.spmedgroup.webApi.Interfaces.IUsuarioRepository.ValidarEmailSenha(System.String,System.String)">
+            <summary>
+            Verifica se os dados do usuario estao cadastrados no sistema
+            </summary>
+            <param name="email">Email do usuario</param>
+            <param name="senha">Senha para acesso</param>
+            <returns>Um usuario autenticado</returns>
+        </member>
     </members>
 </doc>
