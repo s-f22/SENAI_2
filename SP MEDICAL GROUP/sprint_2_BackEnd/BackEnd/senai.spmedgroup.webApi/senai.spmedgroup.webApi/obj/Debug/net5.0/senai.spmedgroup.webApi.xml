@@ -21,15 +21,14 @@
             <summary>
             Cadastra uma nova consulta
             </summary>
-            <param name="novaConsulta">Consulta com informações atualizadas</param>
+            <param name="novaConsulta">Consultas com informações atualizadas</param>
             <returns>Status Code 201 - Created, Confirmação padrao</returns>
         </member>
-        <member name="M:senai.spmedgroup.webApi.Controllers.ConsultasController.Atualizar(System.Int32,senai.spmedgroup.webApi.Domains.Consulta)">
+        <member name="M:senai.spmedgroup.webApi.Controllers.ConsultasController.CancelarConsulta(System.Int32)">
             <summary>
-            Atualiza dados de uma consulta existente, localizando-a por seu Id
+            Cancela uma consulta existente, localizando-a por seu Id
             </summary>
-            <param name="idConsulta">Id da consulta que deja atualizar</param>
-            <param name="consultaAtualizada">Consulta com dados atualizados</param>
+            <param name="idConsulta">Id da consulta que deja cancelar</param>
             <returns>Status Code 204 - Sucesso</returns>
         </member>
         <member name="M:senai.spmedgroup.webApi.Controllers.ConsultasController.Deletar(System.Int32)">
@@ -58,18 +57,24 @@
             </summary>
             <param name="novaConsulta">Objeto novaConsulta que será cadastrada</param>
         </member>
-        <member name="M:senai.spmedgroup.webApi.Interfaces.IConsultaRepository.Atualizar(System.Int32,senai.spmedgroup.webApi.Domains.Consulta)">
+        <member name="M:senai.spmedgroup.webApi.Interfaces.IConsultaRepository.CancelarConsulta(System.Int32)">
             <summary>
-            Atualiza uma consulta existente
+            Cancela uma consulta agendada
             </summary>
-            <param name="id">ID da consulta que será atualizada</param>
-            <param name="consultaAtualizada">Objeto com as novas informações</param>
+            <param name="id">ID da consulta que será cancelada</param>
         </member>
         <member name="M:senai.spmedgroup.webApi.Interfaces.IConsultaRepository.Deletar(System.Int32)">
             <summary>
             Deleta uma consulta existente
             </summary>
             <param name="idConsulta">ID da consulta que será deletada</param>
+        </member>
+        <member name="M:senai.spmedgroup.webApi.Interfaces.IConsultaRepository.IncluirDescricao(System.Int32,senai.spmedgroup.webApi.ViewModels.ConsultaViewModel)">
+            <summary>
+            Atualiza a descrição do atendimento realizado
+            </summary>
+            <param name="idConsulta">ID da consulta cuja descrição sera atualizada</param>
+            <param name="descricaoAtualizada">Resumo do atendimento, preenchido pelo médico</param>
         </member>
         <member name="M:senai.spmedgroup.webApi.Interfaces.IUsuarioRepository.ValidarEmailSenha(System.String,System.String)">
             <summary>

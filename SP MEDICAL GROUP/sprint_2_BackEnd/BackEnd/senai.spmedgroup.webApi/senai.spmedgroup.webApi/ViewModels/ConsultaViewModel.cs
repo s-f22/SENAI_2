@@ -7,5 +7,6 @@ namespace senai.spmedgroup.webApi.ViewModels
 {
     public class ConsultaViewModel
     {
+        public string Resumo { get; set; }
     }
 }

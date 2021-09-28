@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using senai.spmedgroup.webApi.Domains;
 using senai.spmedgroup.webApi.Interfaces;
 using senai.spmedgroup.webApi.Repositories;
+using senai.spmedgroup.webApi.ViewModels;
 
 namespace senai.spmedgroup.webApi.Controllers
 {
@@ -10,6 +11,7 @@ namespace senai.spmedgroup.webApi.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ConsultasController : ControllerBase
     {
         private IConsultaRepository _consultaRepository { get; set; }
@@ -43,7 +45,7 @@ namespace senai.spmedgroup.webApi.Controllers
         /// <summary>
         /// Cadastra uma nova consulta
         /// </summary>
-        /// <param name="novaConsulta">Consulta com informações atualizadas</param>
+        /// <param name="novaConsulta">Consultas com informações atualizadas</param>
         /// <returns>Status Code 201 - Created, Confirmação padrao</returns>
         [Authorize(Roles = "1")]
         [HttpPost]
@@ -54,15 +56,15 @@ namespace senai.spmedgroup.webApi.Controllers
         }
 
         /// <summary>
-        /// Atualiza dados de uma consulta existente, localizando-a por seu Id
+        /// Cancela uma consulta existente, localizando-a por seu Id
         /// </summary>
-        /// <param name="idConsulta">Id da consulta que deja atualizar</param>
-        /// <param name="consultaAtualizada">Consulta com dados atualizados</param>
+        /// <param name="idConsulta">Id da consulta que deja cancelar</param>
         /// <returns>Status Code 204 - Sucesso</returns>
-        [HttpPut("{idConsulta}")]
-        public IActionResult Atualizar(int idConsulta, Consulta consultaAtualizada)
+        [Authorize(Roles = "1")]
+        [HttpPatch("{idConsulta}")]
+        public IActionResult CancelarConsulta(int idConsulta)
         {
-            _consultaRepository.Atualizar(idConsulta, consultaAtualizada);
+            _consultaRepository.CancelarConsulta(idConsulta);
 
             return StatusCode(204);
         }
@@ -72,11 +74,23 @@ namespace senai.spmedgroup.webApi.Controllers
         /// </summary>
         /// <param name="id">Id correspondente a consulta que deseja excluir</param>
         /// <returns>Status Code 204 - Sucesso</returns>
+        [Authorize(Roles = "1")]
         [HttpDelete("{id}")]
         public IActionResult Deletar(int id)
         {
             _consultaRepository.Deletar(id);
 
+            return StatusCode(204);
+        }
+
+
+
+        [Authorize(Roles ="2")]
+        [HttpPatch("descricao/{idConsulta}")]
+
+        public IActionResult IncluirDescricao(int idConsulta, ConsultaViewModel descricaoAtualizada)
+        {
+            _consultaRepository.IncluirDescricao(idConsulta, descricaoAtualizada);
             return StatusCode(204);
         }
 

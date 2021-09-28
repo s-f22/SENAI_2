@@ -16,6 +16,7 @@ namespace senai.spmedgroup.webApi.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UsuariosController : ControllerBase
     {
         private IUsuarioRepository _usuarioRepository { get; set; }
@@ -27,7 +28,7 @@ namespace senai.spmedgroup.webApi.Controllers
         }
 
 
-
+        [Authorize(Roles = "1")]
         [HttpGet]
         public IActionResult Listar()
         {
@@ -36,11 +37,24 @@ namespace senai.spmedgroup.webApi.Controllers
 
 
 
+        [Authorize(Roles = "2, 3")]
+        [HttpGet("ListarMinhasConsultas")]
+
+        public IActionResult ListarMinhasConsultas()
+        {
+            int idUsuarioLogado = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+            
+            return Ok(_usuarioRepository.ListarMinhasConsultas(idUsuarioLogado));
+        }
+
+
+        [Authorize(Roles = "1")]
         [HttpGet("{idUsuario}")]
         public IActionResult BuscarPorId(int idUsuario)
         {
             return Ok(_usuarioRepository.BuscarPorId(idUsuario));
         }
+
 
 
         [Authorize(Roles = "1")]
@@ -53,6 +67,7 @@ namespace senai.spmedgroup.webApi.Controllers
 
 
 
+
         [HttpPut("{idUsuario}")]
         public IActionResult Atualizar(int idUsuario, Usuario usuarioAtualizado)
         {
@@ -62,12 +77,14 @@ namespace senai.spmedgroup.webApi.Controllers
 
 
 
+        [Authorize(Roles = "1")]
         [HttpDelete("{id}")]
         public IActionResult Deletar(int id)
         {
             _usuarioRepository.Deletar(id);
             return StatusCode(204);
         }
+
 
 
 
@@ -88,6 +105,7 @@ namespace senai.spmedgroup.webApi.Controllers
                 
                 int idUsuario = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
 
+
                 _usuarioRepository.SalvarFotoBD(arquivo, idUsuario);
 
                 return Ok();
@@ -98,6 +116,7 @@ namespace senai.spmedgroup.webApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
 
 
 

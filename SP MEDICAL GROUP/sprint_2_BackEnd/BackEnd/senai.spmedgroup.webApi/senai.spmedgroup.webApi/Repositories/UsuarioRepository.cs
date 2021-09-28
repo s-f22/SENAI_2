@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using senai.spmedgroup.webApi.Context;
 using senai.spmedgroup.webApi.Domains;
 using senai.spmedgroup.webApi.Interfaces;
@@ -137,6 +138,40 @@ namespace senai.spmedgroup.webApi.Repositories
         public Usuario ValidarEmailSenha(string email, string senha)
         {
             return metodo.Usuarios.FirstOrDefault(u => u.Email == email && u.Senha == senha);
+        }
+
+
+
+
+
+
+        public List<Consulta> ListarMinhasConsultas(int idUsuarioLogado)
+        {
+            Usuario usuarioLogado = metodo.Usuarios.Find(idUsuarioLogado);
+
+            if (usuarioLogado.IdTipoUsuario == 2)
+            {
+                Medico medico = metodo.Medicos.FirstOrDefault(u => u.IdUsuario == idUsuarioLogado);
+
+                return metodo.Consultas.Select(c => new Consulta() { DataHorario = c.DataHorario, IdConsulta = c.IdConsulta, IdMedico = c.IdMedico, IdPaciente = c.IdPaciente, IdSituacao = c.IdSituacao, Resumo = c.Resumo }).Where(m => m.IdMedico == medico.IdMedico).ToList();
+
+                //RETORNO OPCIONAL COM JSON COMPLETO
+                //return metodo.Consultas.Where(m => m.IdMedico == medico.IdMedico).ToList();
+            }
+
+            else if (usuarioLogado.IdTipoUsuario == 3)
+            {
+                Paciente paciente = metodo.Pacientes.FirstOrDefault(u => u.IdUsuario == idUsuarioLogado);
+
+                return metodo.Consultas.Select(c => new Consulta() { DataHorario = c.DataHorario, IdConsulta = c.IdConsulta, IdMedico = c.IdMedico, IdPaciente = c.IdPaciente, IdSituacao = c.IdSituacao, Resumo = c.Resumo }).Where(p => p.IdPaciente == paciente.IdPaciente).ToList();
+
+                //RETORNO OPCIONAL COM JSON COMPLETO
+                //return metodo.Consultas.Where(m => m.IdPaciente == paciente.IdPaciente).ToList();
+            }
+
+            else
+                return null;            
+
         }
     }
 }

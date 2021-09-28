@@ -19,7 +19,7 @@ namespace senai.spmedgroup.webApi.Context
         }
 
         public virtual DbSet<Clinica> Clinicas { get; set; }
-        public virtual DbSet<Consulta> Consulta { get; set; }
+        public virtual DbSet<Consulta> Consultas { get; set; }
         public virtual DbSet<Especialidade> Especialidades { get; set; }
         public virtual DbSet<ImagemUsuario> ImagemUsuarios { get; set; }
         public virtual DbSet<Medico> Medicos { get; set; }
@@ -27,7 +27,7 @@ namespace senai.spmedgroup.webApi.Context
         public virtual DbSet<Situacao> Situacoes { get; set; }
         public virtual DbSet<TipoUsuario> TipoUsuarios { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
-        public object Consultas { get; internal set; }
+        
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

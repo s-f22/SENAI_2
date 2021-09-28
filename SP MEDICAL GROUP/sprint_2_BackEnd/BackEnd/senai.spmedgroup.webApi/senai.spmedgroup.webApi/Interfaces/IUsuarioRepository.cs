@@ -35,5 +35,7 @@ namespace senai.spmedgroup.webApi.Interfaces
 
         string CarregarFotoBD(int idUsuario);
 
+
+        List<Consulta> ListarMinhasConsultas(int idUsuarioLogado);
     }
 }

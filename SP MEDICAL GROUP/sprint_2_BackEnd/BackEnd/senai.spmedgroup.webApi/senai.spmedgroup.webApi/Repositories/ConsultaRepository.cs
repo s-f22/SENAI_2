@@ -1,6 +1,7 @@
 ﻿using senai.spmedgroup.webApi.Context;
 using senai.spmedgroup.webApi.Domains;
 using senai.spmedgroup.webApi.Interfaces;
+using senai.spmedgroup.webApi.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,43 +11,55 @@ namespace senai.spmedgroup.webApi.Repositories
     {
         SPMedGroupContext metodos = new SPMedGroupContext();
 
-        public void Atualizar(int id, Consulta consultaAtualizada)
-        {
-            //Consulta consultaBuscada = metodos.Consultas.Find(id);
-            Consulta consultaBuscada = metodos.Consulta.Find(id);
+        public void CancelarConsulta(int id)
+        {            
+            Consulta consultaBuscada = metodos.Consultas.Find(id);
 
             if (consultaBuscada != null)
             {
-                consultaBuscada.IdMedico = consultaAtualizada.IdMedico;
-                consultaBuscada.IdPaciente = consultaAtualizada.IdPaciente;
-                consultaBuscada.IdSituacao = consultaAtualizada.IdSituacao;
-                consultaBuscada.DataHorario = consultaAtualizada.DataHorario;
+                consultaBuscada.IdSituacao = 3;
 
-                metodos.Consulta.Update(consultaBuscada);
+                metodos.Consultas.Update(consultaBuscada);
                 metodos.SaveChanges();
             }
         }
 
         public Consulta BuscarPorId(int idConsulta)
         {
-            return metodos.Consulta.FirstOrDefault(c => c.IdConsulta == idConsulta);
+            return metodos.Consultas.FirstOrDefault(c => c.IdConsulta == idConsulta);
         }
 
         public void Cadastrar(Consulta novaConsulta)
         {
-            metodos.Consulta.Add(novaConsulta);
+            novaConsulta.IdSituacao = 2;
+            novaConsulta.Resumo = "O resumo será preenchico pelo médico, após realização da consulta.";
+            metodos.Consultas.Add(novaConsulta);
             metodos.SaveChanges();
         }
 
         public void Deletar(int idConsulta)
         {
-            metodos.Consulta.Remove(BuscarPorId(idConsulta));
+            metodos.Consultas.Remove(BuscarPorId(idConsulta));
             metodos.SaveChanges();
         }
 
         public List<Consulta> ListarTodas()
         {
-            return metodos.Consulta.ToList();
+            return metodos.Consultas.ToList();
         }
+
+        public void IncluirDescricao(int idConsulta, ConsultaViewModel descricaoAtualizada)
+        {
+            Consulta consultaBuscada = metodos.Consultas.Find(idConsulta);
+
+            if (consultaBuscada != null)
+            {
+                consultaBuscada.Resumo = descricaoAtualizada.Resumo;
+                consultaBuscada.IdSituacao = 1;
+            }
+          
+            metodos.Consultas.Update(consultaBuscada);
+            metodos.SaveChanges();
+        }   
     }
 }
