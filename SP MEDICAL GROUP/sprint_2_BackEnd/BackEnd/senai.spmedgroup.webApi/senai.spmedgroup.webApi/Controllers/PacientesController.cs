@@ -23,8 +23,8 @@ namespace senai.spmedgroup.webApi.Controllers
         [HttpGet]
         public IActionResult ListasTodos()
         {
-            _pacienteRepository.ListarTodos();
-            return Ok(200);
+            
+            return Ok(_pacienteRepository.ListarTodos());
         }
     }
 }

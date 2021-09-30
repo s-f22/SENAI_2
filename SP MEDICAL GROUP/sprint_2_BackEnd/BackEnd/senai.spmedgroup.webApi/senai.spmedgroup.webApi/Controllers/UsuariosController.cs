@@ -37,14 +37,26 @@ namespace senai.spmedgroup.webApi.Controllers
 
 
 
-        [Authorize(Roles = "2, 3")]
+        //[Authorize(Roles = "2, 3")]
         [HttpGet("ListarMinhasConsultas")]
 
         public IActionResult ListarMinhasConsultas()
         {
-            int idUsuarioLogado = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+            try
+            {                
+                if (HttpContext.User.IsInRole("2") || HttpContext.User.IsInRole("3"))
+                {
+                    return Ok(_usuarioRepository.ListarMinhasConsultas(Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value)));
+                }
+                                
+                return StatusCode(403, new { mensagem = "Ação não autorizada para este perfil de usuario" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
             
-            return Ok(_usuarioRepository.ListarMinhasConsultas(idUsuarioLogado));
+            
         }
 
 

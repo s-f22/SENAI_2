@@ -91,25 +91,18 @@ namespace senai.spmedgroup.webApi.Repositories
             ImagemUsuario imgUsuario = new ImagemUsuario();
 
             using (var ms = new MemoryStream())
-            {
-                //copia a imagem enviada para a memoria ms
+            {                
                 foto.CopyTo(ms);
-
-                //converte a imagem para binário, armazenado em uma matriz
+                                
                 imgUsuario.ImgBinario = ms.ToArray();
-
-                //captura o nome do arquivo de imagem
+                                
                 imgUsuario.NomeArquivo = foto.FileName;
-
-                //captura a extensão do arquivo de imagem a partir de seu nome
+                                
                 imgUsuario.MimeType = foto.FileName.Split('.').Last();
-
-                //atribui o id do usuario informado a imagem
+                                
                 imgUsuario.IdUsuario = idUsuario;
             }
-
-            //Analisar se usuario ja possui foto de perfil.
-
+                        
             ImagemUsuario imgExistente = new ImagemUsuario();
 
             imgExistente = metodo.ImagemUsuarios.FirstOrDefault(i => i.IdUsuario == idUsuario);
@@ -123,11 +116,9 @@ namespace senai.spmedgroup.webApi.Repositories
 
                 metodo.ImagemUsuarios.Update(imgExistente);
             }
-            else
-            {
+            else            
                 metodo.ImagemUsuarios.Add(imgUsuario);
-            }
-
+            
             metodo.SaveChanges();
 
         }
