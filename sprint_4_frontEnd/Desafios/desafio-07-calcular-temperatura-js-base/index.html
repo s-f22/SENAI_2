@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Conversão Temperatura</title>
+</head>
+
+<body>
+
+    <h1>Conversor de temperatura</h1>
+
+    <form id="formtemperatura">
+        <input type="number" required name="temperatura" id="temperatura">
+        <input type="checkbox" id="celcius" name="temperatura">Celcius</checkbox>
+        <input type="checkbox" id="fahrenheit" name="temperatura">Fahrenheit</checkbox>
+        <button type="submit" id="btnConverter">Converter</button>
+    </form>
+    <span id="url">Resultado</span>
+
+    <script>
+
+
+        let input = document.querySelector('#temperatura');
+        let btnConverter = document.querySelector('#btnConverter')
+
+        btnConverter.addEventListener('click', function (pagina) {
+
+            pagina.preventDefault()
+
+            let temperatura
+            
+            if (input.value === NaN || input.value === null || input.value === undefined) {
+                console.log('Insira um valor de temperatura')
+            }
+            else {
+                if (document.querySelector('#celcius').checked == true) {
+                    temperatura = (parseFloat(input.value) - 32) / 1.8
+                    console.log(temperatura + ' °C')
+                    //return temperatura
+                }
+                else if (document.querySelector('#fahrenheit').checked == true) {
+                    temperatura = (parseFloat(input.value) * 1.8) + 32
+                    console.log(temperatura + ' °F')
+                    //return temperatura
+                }
+            }
+            document.getElementById("url").innerHTML = temperatura;
+        })
+
+    </script>
+
+</body>
+
+</html>
