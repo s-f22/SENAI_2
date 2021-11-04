@@ -29,11 +29,16 @@ class Clock extends React.Component {
   };
 
 
-  pausarRelogio(){
-    this.setState({
-      date: clearInterval()
-    })
+  pausarRelogio() {
+    this.componentWillUnmount()
+    console.log(`Relogio ${this.timerID} pausado.`)
   };
+
+  playRelogio() {
+    this.timerID = setInterval(() => {
+      this.thick()
+    }, 1000)
+  }
 
 
 
@@ -62,8 +67,8 @@ class Clock extends React.Component {
       <div>
         <h1>Relógio</h1>
         <DataFormatada date={this.state.date} />
-        <button onClick={this.pausarRelogio}>Pausar
-        </button>
+        <button onClick={() => this.pausarRelogio()}>Pausar</button>
+        <button onClick={() => this.playRelogio()}>Reiniciar</button>
       </div>
     )
   }
