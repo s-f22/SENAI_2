@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    /* VARIAVEIS */
+    --grid: 1200px;
+    --altura_header: calc(var(--grid) * 0.058333333);
+    --altura_footer: calc(var(--grid) * 0.275);
+    --cor_texto: var(--Branco);
+    --fonte: 'Montserrat', sans-serif;
+    
+    /* CORES */
+    --VERDE_B: rgba(3,166,150,1);
+    --VERDE_A: rgba(26,217,163,0);
+    --Branco: white;
+    --Azul: rgba(53,135,242,1);
+}
+
+body{
+    background-image: url(img/sche.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 1360px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header{
+    background-image: linear-gradient(to right, var(--VERDE_A), var(--VERDE_B));
+    background-image: trans;
+    height: var(--altura_header);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.grid{
+    /* background-color: chartreuse; */
+    width: var(--grid);
+    
+}
+
+.posix_header{
+    display: flex;
+    justify-content: space-between;
+    position: absolute
+}
+
+.spm_logo{
+    position: relative;
+    height: 16.75%;
+    width: 16.75%;
+}
+
+.menu_principal{
+    /* background-color: chocolate; */
+    width: 35%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+}
+.menu_principal a{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration-line: none;
+    color: white;
+}
+
+.conteudos{
+    /* background-color: yellow; */
+    display: flex;
+    width: 100%;
+    height: 960px;
+    justify-content: space-between;
+    padding-top: 15%;
+}
+
+
+.listar_consultas{
+    background-color: rgba(255,255,255,0.75);
+    border-radius: 5px;
+    width: 46%;
+    height: 73%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    overflow-y: scroll;
+    padding-top: 50px;
+}
+
+.listar_consultas h2{
+    font-family: var(--fonte);
+    color: var(--Azul);
+    font-size: 24px;
+    text-align: left;
+}
+
+.conteiner_cards{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.card_consulta{
+    background-color: white;
+    border-radius: 15px;
+    border-color: var(--VERDE_B);
+    border-style: solid;
+    border-width: thin;
+    width: 440px;
+    height: 430px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.listar_consultas table{
+    background-color: var(--VERDE_B);
+    width: 380px;
+    height: 300px;
+    text-align: left;
+    border-radius: 10px;
+    font-family: var(--fonte);
+    font-size: 15px;
+    color: var(--Branco);
+}
+
+.cadastrar_consultas{
+    background-color: rgba(255,255,255,0.75);
+    width: 46%;
+    height: 47%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+footer{
+    background-color: var(--VERDE_B);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: var(--altura_footer)
+}
+
+.container_footer{
+    /* background-color: greenyellow; */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: var(--grid);
+    justify-content: space-evenly;
+}
+
+.acima_linha{
+    /* background-color: cornsilk; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* ALTURA DA TABELA E DO LOGO */
+    height: calc( var(--altura_footer) * 0.4 );
+    width: 100%;
+}
+
+.tabela_footer{
+    /* background-color: darkblue; */
+    width: calc( var(--grid) * 0.35);
+    height: 100%;
+    text-align: left;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+    font-size: 15px;
+}
+
+.tabela_footer thead{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+.abaixo_linha{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--fonte);
+    color: var(--Branco);
+    font-size: 15px;
+}
+
+.box_seguir{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: calc( var(--altura_footer) * 0.15 );
+    width: 250px;
+}
+
+.box_seguir img{
+    height: 100%;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.conteiner_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 380px;
+    height: 180px;
+}
+
+.form_inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.form_inputs input{
+    width: 100%;
+    height: 40px;
+}
+
+
