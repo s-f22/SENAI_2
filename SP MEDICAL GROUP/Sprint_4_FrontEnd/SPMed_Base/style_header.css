@@ -15,6 +15,7 @@
     --fonte: 'Montserrat', sans-serif;
     
     /* CORES */
+    --VERDE_C: rgba(5,242,155,1);
     --VERDE_B: rgba(3,166,150,1);
     --VERDE_A: rgba(26,217,163,0);
     --Branco: white;
@@ -87,7 +88,7 @@ header{
 
 .listar_consultas{
     background-color: rgba(255,255,255,0.75);
-    border-radius: 5px;
+    border-radius: 20px;
     width: 46%;
     height: 73%;
     display: flex;
@@ -96,6 +97,7 @@ header{
     align-items: center;
     overflow-y: scroll;
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .listar_consultas h2{
@@ -103,17 +105,12 @@ header{
     color: var(--Azul);
     font-size: 24px;
     text-align: left;
+    margin-bottom: 20px;
 }
 
-.conteiner_cards{
+/* .conteiner_cards{
     margin-top: 30px;
     margin-bottom: 30px;
-}
-
-.card_consulta{
-    background-color: white;
-    border-radius: 15px;
-    border-color: var(--VERDE_B);
     border-style: solid;
     border-width: thin;
     width: 440px;
@@ -123,18 +120,55 @@ header{
     align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
-}
+} */
+
+/* .card_consulta{
+    background-color: white;
+    border-radius: 15px;
+    border-color: var(--VERDE_B);
+    
+} */
 
 
-.listar_consultas table{
+.infos_card{
     background-color: var(--VERDE_B);
-    width: 380px;
-    height: 300px;
+    width: 90%;
+    height: fit-content;
+    padding: 3%;
     text-align: left;
     border-radius: 10px;
     font-family: var(--fonte);
     font-size: 15px;
     color: var(--Branco);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border-style: solid;
+    border-width: thin;
+    border-color: var(--VERDE_C);
+}
+
+.campos{
+    margin-top: 3%;
+    background-color: var(--VERDE_C);
+    width: 90%;
+    height: fit-content;
+    padding: 5%;
+    border-radius: 10px;
+}
+
+.linha_campos{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: min-content;
+}
+
+.linha_campos input{
+    width: 60%;
+    
 }
 
 .cadastrar_consultas{
