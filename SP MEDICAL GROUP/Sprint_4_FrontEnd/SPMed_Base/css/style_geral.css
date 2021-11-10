@@ -22,8 +22,11 @@
     --Azul: rgba(53,135,242,1);
 }
 
-body{
-    background-image: url(img/sche.jpg);
+/* -------------- 01 CADASTRO CONSULTAS ------------------- */
+
+
+.body_cadastro_consultas{
+    background-image: url(..//img/sche.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     /* height: 1360px; */
@@ -32,7 +35,7 @@ body{
     align-items: center;
 }
 
-header{
+.header_cadastro_consultas{
     background-image: linear-gradient(to right, var(--VERDE_A), var(--VERDE_B));
     background-image: trans;
     height: var(--altura_header);
@@ -47,19 +50,19 @@ header{
     
 }
 
-.posix_header{
+.posix_header_cadastro_consultas{
     display: flex;
     justify-content: space-between;
     position: absolute
 }
 
-.spm_logo{
+.spm_logo_cadastro_consultas{
     position: relative;
     height: 16.75%;
     width: 16.75%;
 }
 
-.menu_principal{
+.menu_principal_cadastro_consultas{
     /* background-color: chocolate; */
     width: 35%;
     height: 100%;
@@ -68,7 +71,7 @@ header{
     align-items: center;
     margin-top: 25px;
 }
-.menu_principal a{
+.menu_principal_cadastro_consultas a{
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 15px;
@@ -76,7 +79,7 @@ header{
     color: white;
 }
 
-.conteudos{
+.conteudos_cadastro_consultas{
     /* background-color: yellow; */
     display: flex;
     width: 100%;
@@ -86,7 +89,7 @@ header{
 }
 
 
-.listar_consultas{
+.listar_consultas_cadastro_consultas{
     background-color: rgba(255,255,255,0.75);
     border-radius: 20px;
     width: 46%;
@@ -100,7 +103,7 @@ header{
     padding-bottom: 50px;
 }
 
-.listar_consultas h2{
+.listar_consultas_cadastro_consultas h2{
     font-family: var(--fonte);
     color: var(--Azul);
     font-size: 24px;
@@ -108,29 +111,8 @@ header{
     margin-bottom: 20px;
 }
 
-/* .conteiner_cards{
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border-style: solid;
-    border-width: thin;
-    width: 440px;
-    height: 430px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-} */
 
-/* .card_consulta{
-    background-color: white;
-    border-radius: 15px;
-    border-color: var(--VERDE_B);
-    
-} */
-
-
-.infos_card{
+.infos_card_cadastro_consultas{
     background-color: var(--VERDE_B);
     width: 90%;
     height: fit-content;
@@ -149,7 +131,7 @@ header{
     border-color: var(--VERDE_C);
 }
 
-.campos{
+.campos_cadastro_consultas{
     margin-top: 3%;
     background-color: var(--VERDE_C);
     width: 90%;
@@ -158,7 +140,7 @@ header{
     border-radius: 10px;
 }
 
-.linha_campos{
+.linha_campos_cadastro_consultas{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -166,12 +148,12 @@ header{
     height: min-content;
 }
 
-.linha_campos input{
+.linha_campos_cadastro_consultas input{
     width: 60%;
     
 }
 
-.cadastrar_consultas{
+.cadastrar_consultas_cadastro_consultas{
     background-color: rgba(255,255,255,0.75);
     width: 46%;
     height: 47%;
@@ -182,7 +164,7 @@ header{
 }
 
 
-footer{
+.footer_cadastro_consultas{
     background-color: var(--VERDE_B);
     display: flex;
     justify-content: center;
@@ -190,7 +172,7 @@ footer{
     height: var(--altura_footer)
 }
 
-.container_footer{
+.container_footer_cadastro_consultas{
     /* background-color: greenyellow; */
     display: flex;
     flex-direction: column;
@@ -199,7 +181,7 @@ footer{
     justify-content: space-evenly;
 }
 
-.acima_linha{
+.acima_linha_cadastro_consultas{
     /* background-color: cornsilk; */
     display: flex;
     justify-content: space-between;
@@ -210,7 +192,7 @@ footer{
     width: 100%;
 }
 
-.tabela_footer{
+.tabela_footer_cadastro_consultas{
     /* background-color: darkblue; */
     width: calc( var(--grid) * 0.35);
     height: 100%;
@@ -221,13 +203,13 @@ footer{
     font-size: 15px;
 }
 
-.tabela_footer thead{
+.tabela_footer_cadastro_consultas thead{
     font-family: 'Montserrat', sans-serif;
     font-weight: bolder;
     font-size: 15px;
 }
 
-.abaixo_linha{
+.abaixo_linha_cadastro_consultas{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -236,7 +218,7 @@ footer{
     font-size: 15px;
 }
 
-.box_seguir{
+.box_seguir_cadastro_consultas{
     display: flex;
     justify-content: right;
     align-items: center;
@@ -244,13 +226,13 @@ footer{
     width: 250px;
 }
 
-.box_seguir img{
+.box_seguir_cadastro_consultas img{
     height: 100%;
     margin-right: 3px;
     margin-left: 3px;
 }
 
-.conteiner_form{
+.conteiner_form_cadastro_consultas{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -258,7 +240,7 @@ footer{
     height: 180px;
 }
 
-.form_inputs{
+.form_inputs_cadastro_consultas{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -267,9 +249,110 @@ footer{
     height: 100%;
 }
 
-.form_inputs input{
+.form_inputs_cadastro_consultas input{
     width: 100%;
     height: 40px;
 }
 
+/* -------------- 01 CADASTRO CONSULTAS ------------------- */
 
+
+
+
+
+/* --------------------- 02 LOGIN ------------------------- */
+
+
+/* .background_logo_login{
+    background-image: url(..//img/logo_spmedgroup_v2.png);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: 100vh;
+    height: 100vh;
+    position: absolute;
+} */
+
+.body_login{
+    background-image: url(..//img/logo_spmedgroup_LOGIN.png);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.posix_login{
+    /* background-color: cornflowerblue; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto 0px auto 0px; 
+}
+
+.bem_vindo_login{
+    background-color: var(--Azul);
+    height: 50vh;
+    width: calc( var(--grid) * 0.42);
+    height: 50vh;
+}
+
+.img_medicos_login{
+    background-image: url(..//img/medicos.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 60%;
+}
+
+.msg_login{
+    margin: 7% 7%;
+    font-family: var(--fonte);
+}
+
+
+.box_login{
+    background-color: rgba(255,255,255,0.5);
+    border-style: solid;
+    border-width: 20px;
+    border-color: var(--VERDE_C);
+    border-radius: 15px;
+    height: 50vh;
+    width: calc( var(--grid) * 0.52);
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.dados_login{
+    background-color: rebeccapurple;
+    width: 80%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.inputs_login{
+    width: 80%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.inputs_login button{
+    height: 20px;
+    width: 60px;
+}
+
+
+
+
+
+
+
+
+/* --------------------- 02 LOGIN ------------------------- */
