@@ -22,6 +22,18 @@ namespace senai.spmedgroup.webApi
         public void ConfigureServices(IServiceCollection services)
         // NEWTONSOFT, SWAGGER E JWTBEARER
         {
+            //Adiciona o CORS ao projeto
+            services.AddCors(options => {
+                //para add uma politica de controle.
+                options.AddPolicy("CorsPolicy",
+                   builder =>
+                   {
+                       builder.WithOrigins("http://localhost:3000")
+                                             .AllowAnyHeader() //qualquer cabecalho
+                                    .AllowAnyMethod(); //vamos utilizar no post.(json)
+                   });
+            });
+
             services
                 .AddControllers()
                 .AddNewtonsoftJson(options => {
@@ -29,7 +41,7 @@ namespace senai.spmedgroup.webApi
                     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                 });
 
-            // Adiciona o serviço do Swagger
+            // Adiciona o serviï¿½o do Swagger
             // https://docs.microsoft.com/pt-br/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-5.0&tabs=visual-studio
 
             services.AddSwaggerGen(c =>
@@ -92,6 +104,8 @@ namespace senai.spmedgroup.webApi
             });
             // SWAGGER
 
+            app.UseCors("CorsPolicy");
+            
             app.UseRouting();
 
             // JWT BEARER
