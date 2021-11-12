@@ -14,6 +14,7 @@ import './assets/css/style_geral.css';
 
 
 import HomeLogin from '../src/pages/login/App';
+import Administrador from '../src/pages/administrador/administrador'
 
 
 
@@ -68,6 +69,7 @@ const routing = (
       <Switch>
         <Route exact path="/" component={HomeLogin} />
         <Route path="/login" component={HomeLogin} />
+        <PermissaoAdm path="/administrador" component={Administrador} />
       </Switch>
     </div>
   </Router>
