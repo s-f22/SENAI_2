@@ -1,4 +1,5 @@
-﻿using senai.spmedgroup.webApi.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using senai.spmedgroup.webApi.Context;
 using senai.spmedgroup.webApi.Domains;
 using senai.spmedgroup.webApi.Interfaces;
 using senai.spmedgroup.webApi.ViewModels;
@@ -45,7 +46,8 @@ namespace senai.spmedgroup.webApi.Repositories
 
         public List<Consulta> ListarTodas()
         {
-            return metodos.Consultas.ToList();
+            //return metodos.Consultas.ToList();
+            return metodos.Consultas.Include(p => p.IdPacienteNavigation).Include(m => m.IdMedicoNavigation).Include(s => s.IdSituacaoNavigation).ToList();
         }
 
         public void IncluirDescricao(int idConsulta, ConsultaViewModel descricaoAtualizada)

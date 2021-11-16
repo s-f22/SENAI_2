@@ -192,6 +192,10 @@
     width: 100%;
 }
 
+.acima_linha_cadastro_consultas img{
+    height: 100%;
+}
+
 .tabela_footer_cadastro_consultas{
     /* background-color: darkblue; */
     width: calc( var(--grid) * 0.35);
@@ -252,6 +256,19 @@
 .form_inputs_cadastro_consultas input{
     width: 100%;
     height: 40px;
+}
+
+.form_inputs_cadastro_consultas select{
+    width: 100%;
+    height: 40px;
+}
+
+.form_inputs_cadastro_consultas button{
+    margin-top: 30px;
+}
+
+hr{
+    color: white;
 }
 
 /* -------------- 01 CADASTRO CONSULTAS ------------------- */
