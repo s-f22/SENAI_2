@@ -35,6 +35,16 @@
     align-items: center;
 }
 
+.body_medicos{
+    background-image: url(../img/doctor.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 1360px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .header_cadastro_consultas{
     background-image: linear-gradient(to right, var(--VERDE_A), var(--VERDE_B));
     background-image: trans;
@@ -372,8 +382,78 @@ hr{
 
 
 
-
-
-
-
 /* --------------------- 02 LOGIN ------------------------- */
+
+
+
+
+
+
+
+
+
+
+/* --------------------- 03 MEDICOS ------------------------- */
+
+
+
+
+
+.editar_descricao{
+    background-color: rgba(255,255,255,0.75);
+    width: 46%;
+    height: 47%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.form_inputs_editar_descricao{
+    width: 100%;
+    height: 100%;
+}
+
+.form_inputs_editar_descricao textarea{
+    width: 100%;
+    height: 75%;
+}
+
+.conteiner_form_editar_descricao{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 380px;
+    height: 180px;
+}
+
+.listar_consultas_medicos{
+    background-color: rgba(255,255,255,0.75);
+    border-radius: 20px;
+    width: 46%;
+    height: 73%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    overflow-y: scroll;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.listar_consultas_cadastro_consultas img{
+    
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.editar_descricao h2{
+    font-family: var(--fonte);
+    color: var(--Azul);
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+
+/* --------------------- 03 MEDICOS ------------------------- */

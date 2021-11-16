@@ -7,7 +7,7 @@ import Rodape from '../../Components/rodape';
 import Card_Consulta from '../../Components/card_consulta'; // TENTAR POSSIBILIDADE DE COMPONENTIZAR. É POSSIVEL EXPORTAR /ISOLAR A FUNÇÃO BUSCARCONSULTA?
 
 
-export default function Administrador() {
+export default function Medico() {
 
     const [listaConsultas, setListaConsultas] = useState([]);
 
@@ -52,8 +52,8 @@ export default function Administrador() {
             idPaciente: idPac,
             dataHorario: dataConsulta,
             idMedico: idMed
-          };
-      
+        };
+
 
         axios.post('http://localhost:5000/api/Consultas', consulta,
             {
@@ -71,7 +71,7 @@ export default function Administrador() {
                 }
             })
             .catch(
-                erro => console.log(erro, "DEU RUIM"), setDataConsulta(  ),
+                erro => console.log(erro, "DEU RUIM"), setDataConsulta(),
                 setIdPac(0), setIdMed(0), setIsLoading(false)
             );
     }
@@ -118,7 +118,7 @@ export default function Administrador() {
 
 
     return (
-        <div className="body_cadastro_consultas">
+        <div className="body_medicos">
 
             <Cabecalho />
 
@@ -158,57 +158,17 @@ export default function Administrador() {
                             })
                         }
                     </div>
-                    <div className="cadastrar_consultas_cadastro_consultas">
-                        <h2>Cadastrar Consulta</h2>
-                        <form onSubmit={ cadastrarConsulta } className="conteiner_form_cadastro_consultas">
-                            <div className="form_inputs_cadastro_consultas">
-
-                                <input type="datetime-local" name="dataConsulta" value={dataConsulta} onChange={(campo) => setDataConsulta(campo.target.value)}/>
-
-                                <select
-                                    name="paciente"
-                                    value={idPac}
-                                    onChange={(campo) => setIdPac(campo.target.value)}
-                                >
-                                    <option value="0">Selecione o paciente:</option>
-                                    {
-                                        listaPacientes.map((paciente) => {
-                                            return (
-                                                <option
-                                                    key={paciente.idPaciente}
-                                                    value={paciente.idPaciente}
-                                                >
-                                                    {paciente.nomeCompleto}
-                                                </option>
-                                            );
-                                        })
-                                    }
-                                </select>
-
-                                <select
-                                    name="medico"
-                                    value={idMed}
-                                    onChange={(campo) => setIdMed(campo.target.value)}
-                                >
-                                    <option value="0">Selecione o medico:</option>
-                                    {
-                                        listaMedicos.map((medico) => {
-                                            return (
-                                                <option
-                                                    key={medico.idMedico}
-                                                    value={medico.idMedico}
-                                                >
-                                                    {medico.nomeCompleto}
-                                                </option>
-                                            );
-                                        })
-                                    }
-                                </select>
-
+                    <div class="editar_descricao">
+                        <h2>Resumo do Atendimento</h2>
+                        <form action="" class="conteiner_form_editar_descricao">
+                            <div class="form_inputs_editar_descricao">
+                                <input type="text" placeholder="Nº da Consulta" />
+                                <textarea name="" id="" cols="30" rows="10" placeholder="Insira abaixo a descrição do atendimento"></textarea>
                             </div>
-                            <button type="submit">Cadastrar</button>
+                            <button>Inserir</button>
                         </form>
                     </div>
+
 
                 </section>
             </div>

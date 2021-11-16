@@ -15,10 +15,11 @@ import './assets/css/style_geral.css';
 
 import HomeLogin from '../src/pages/login/App';
 import Administrador from '../src/pages/administrador/administrador'
-
+import Medico from './pages/administrador/medico';
 
 
 import reportWebVitals from './reportWebVitals';
+
 
 //---------------------------------------------------------------------------------------------------------------------------------
 
@@ -70,6 +71,7 @@ const routing = (
         <Route exact path="/" component={HomeLogin} />
         <Route path="/login" component={HomeLogin} />
         <PermissaoAdm path="/administrador" component={Administrador} />
+        <PermissaoMedico path="/medico" component={Medico} />
       </Switch>
     </div>
   </Router>
