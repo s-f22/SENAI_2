@@ -144,20 +144,20 @@ namespace senai.spmedgroup.webApi.Repositories
             {
                 Medico medico = metodo.Medicos.FirstOrDefault(u => u.IdUsuario == idUsuarioLogado);
 
-                return metodo.Consultas.Select(c => new Consulta() { DataHorario = c.DataHorario, IdConsulta = c.IdConsulta, IdMedico = c.IdMedico, IdPaciente = c.IdPaciente, IdSituacao = c.IdSituacao, Resumo = c.Resumo }).Where(m => m.IdMedico == medico.IdMedico).ToList();
+                //return metodo.Consultas.Select(c => new Consulta() { DataHorario = c.DataHorario, IdConsulta = c.IdConsulta, IdMedico = c.IdMedico, IdPaciente = c.IdPaciente, IdSituacao = c.IdSituacao, Resumo = c.Resumo }).Where(m => m.IdMedico == medico.IdMedico).ToList();
 
                 //RETORNO OPCIONAL COM JSON COMPLETO
-                //return metodo.Consultas.Where(m => m.IdMedico == medico.IdMedico).ToList();
+                return metodo.Consultas.Include(p => p.IdPacienteNavigation).Include(p => p.IdSituacaoNavigation).Where(m => m.IdMedico == medico.IdMedico).ToList();
             }
 
             else if (usuarioLogado.IdTipoUsuario == 3)
             {
                 Paciente paciente = metodo.Pacientes.FirstOrDefault(u => u.IdUsuario == idUsuarioLogado);
 
-                return metodo.Consultas.Select(c => new Consulta() { DataHorario = c.DataHorario, IdConsulta = c.IdConsulta, IdMedico = c.IdMedico, IdPaciente = c.IdPaciente, IdSituacao = c.IdSituacao, Resumo = c.Resumo }).Where(p => p.IdPaciente == paciente.IdPaciente).ToList();
+                //return metodo.Consultas.Select(c => new Consulta() { DataHorario = c.DataHorario, IdConsulta = c.IdConsulta, IdMedico = c.IdMedico, IdPaciente = c.IdPaciente, IdSituacao = c.IdSituacao, Resumo = c.Resumo }).Where(p => p.IdPaciente == paciente.IdPaciente).ToList();
 
                 //RETORNO OPCIONAL COM JSON COMPLETO
-                //return metodo.Consultas.Where(m => m.IdPaciente == paciente.IdPaciente).ToList();
+                return metodo.Consultas.Include(m => m.IdMedicoNavigation).Include(m => m.IdSituacaoNavigation).Where(m => m.IdPaciente == paciente.IdPaciente).ToList();
             }
 
             else

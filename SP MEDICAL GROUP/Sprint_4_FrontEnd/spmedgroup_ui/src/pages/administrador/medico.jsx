@@ -12,11 +12,9 @@ export default function Medico() {
     const [listaConsultas, setListaConsultas] = useState([]);
 
     const [isLoading, setIsLoading] = useState(false);
-    const [dataConsulta, setDataConsulta] = useState(new Date());
-    const [idPac, setIdPac] = useState(0);
-    const [idMed, setIdMed] = useState(0);
-    const [listaPacientes, setListaPacientes] = useState([])
-    const [listaMedicos, setListaMedicos] = useState([])
+    const [idDaConsulta, setIdDaConsulta] = useState('');
+    const [descricaoAtualizada, setDescricaoAtualizada] = useState( '' );
+    
 
 
 
@@ -24,7 +22,7 @@ export default function Medico() {
 
     function buscarConsultas() {
         axios
-            ('http://localhost:5000/api/Consultas',
+            ('http://localhost:5000/api/Usuarios/ListarMinhasConsultas',
                 {
                     headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login') }
                 }
@@ -41,79 +39,39 @@ export default function Medico() {
 
 
 
-    function cadastrarConsulta(novaConsulta) {
+    function atualizarResumo(atualizacao) {
 
         setIsLoading(true);
 
-        novaConsulta.preventDefault();
+        atualizacao.preventDefault();
 
 
-        let consulta = {
-            idPaciente: idPac,
-            dataHorario: dataConsulta,
-            idMedico: idMed
-        };
-
-
-        axios.post('http://localhost:5000/api/Consultas', consulta,
+        axios.patch('http://localhost:5000/api/Consultas/' + {idDaConsulta}, {resumo: descricaoAtualizada},
             {
                 headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login') }
             }
         )
             .then(resposta => {
-                if (resposta.status === 201) {
-                    console.log("Consulta cadastrada com sucesso!");
-                    setDataConsulta(new Date());
-                    setIdPac(0);
-                    setIdMed(0);
+                if (resposta.status === 204) {
+                    console.log("Resumo atualizado com sucesso!");
+                    
+                    setIdDaConsulta(null);
+                    setDescricaoAtualizada('');
                     buscarConsultas();
                     setIsLoading(false);
                 }
             })
             .catch(
-                erro => console.log(erro, "DEU RUIM"), setDataConsulta(),
-                setIdPac(0), setIdMed(0), setIsLoading(false)
+                erro => console.log(erro, "DEU RUIM"), setIdDaConsulta(''),
+                setDescricaoAtualizada(''), setIsLoading(false)
             );
     }
 
 
 
 
-    function buscarPacientes() {
-        axios
-            ('http://localhost:5000/api/Pacientes',
-                {
-                    headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login') }
-                }
-            )
-            .then(response => {
-                if (response.status === 200) {
-                    setListaPacientes(response.data)
-                }
-            })
-            .catch(erro => console.log(erro));
-    };
-
-    function buscarMedicos() {
-        axios
-            ('http://localhost:5000/api/Medicos',
-                {
-                    headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login') }
-                }
-            )
-            .then(response => {
-                if (response.status === 200) {
-                    setListaMedicos(response.data)
-                }
-            })
-            .catch(erro => console.log(erro));
-    };
-
-
-
     useEffect(buscarConsultas, []);
-    useEffect(buscarPacientes, []);
-    useEffect(buscarMedicos, []);
+   
 
 
 
@@ -158,12 +116,12 @@ export default function Medico() {
                             })
                         }
                     </div>
-                    <div class="editar_descricao">
+                    <div className="editar_descricao">
                         <h2>Resumo do Atendimento</h2>
-                        <form action="" class="conteiner_form_editar_descricao">
-                            <div class="form_inputs_editar_descricao">
-                                <input type="text" placeholder="Nº da Consulta" />
-                                <textarea name="" id="" cols="30" rows="10" placeholder="Insira abaixo a descrição do atendimento"></textarea>
+                        <form onSubmit={ atualizarResumo } className="conteiner_form_editar_descricao">
+                            <div className="form_inputs_editar_descricao">
+                                <input type="text" placeholder="Nº da Consulta" name="idConsulta" value={ idDaConsulta } onChange={(campo) => setIdDaConsulta(campo.target.value)}/>
+                                <textarea name="resumoAtualizado" id="" cols="30" rows="10" placeholder="Insira abaixo a descrição do atendimento" value={ descricaoAtualizada } onChange={(campo) => setDescricaoAtualizada(campo.target.value)}></textarea>
                             </div>
                             <button>Inserir</button>
                         </form>
