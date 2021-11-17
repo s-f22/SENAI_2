@@ -13,14 +13,11 @@ export default function Medico() {
 
     const [isLoading, setIsLoading] = useState(false);
     const [idDaConsulta, setIdDaConsulta] = useState('');
-    const [descricaoAtualizada, setDescricaoAtualizada] = useState( '' );
-    
-
-
-
+    const [descricaoAtualizada, setDescricaoAtualizada] = useState('');
 
 
     function buscarConsultas() {
+        console.log('buscou as consultaaas')
         axios
             ('http://localhost:5000/api/Usuarios/ListarMinhasConsultas',
                 {
@@ -46,7 +43,7 @@ export default function Medico() {
         atualizacao.preventDefault();
 
 
-        axios.patch('http://localhost:5000/api/Consultas/' + {idDaConsulta}, {resumo: descricaoAtualizada},
+        axios.patch('http://localhost:5000/api/Consultas/descricao/' + idDaConsulta, { resumo: descricaoAtualizada },
             {
                 headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login') }
             }
@@ -54,12 +51,13 @@ export default function Medico() {
             .then(resposta => {
                 if (resposta.status === 204) {
                     console.log("Resumo atualizado com sucesso!");
-                    
-                    setIdDaConsulta(null);
-                    setDescricaoAtualizada('');
                     buscarConsultas();
-                    setIsLoading(false);
+                    //setIdDaConsulta(null);
+                    //setDescricaoAtualizada('');
+                    //setIsLoading(false);
+
                 }
+
             })
             .catch(
                 erro => console.log(erro, "DEU RUIM"), setIdDaConsulta(''),
@@ -71,7 +69,8 @@ export default function Medico() {
 
 
     useEffect(buscarConsultas, []);
-   
+
+
 
 
 
@@ -87,41 +86,41 @@ export default function Medico() {
                         {
                             listaConsultas.map((consulta) => {
                                 return (
-                                    <form action="" className="infos_card_cadastro_consultas" key={consulta.idConsulta}>
-                                        <h3 >Consulta {consulta.idConsulta}</h3>
+                                    <article className="infos_card_cadastro_consultas" key={consulta.idConsulta}>
+                                        <h3> Consulta {consulta.idConsulta} </h3>
                                         <div className="campos_cadastro_consultas">
                                             <div className="linha_campos_cadastro_consultas">
-                                                <label for="">Paciente:</label>
-                                                <input type="text" value={consulta.idPacienteNavigation.nomeCompleto} />
+                                                <h4> Paciente: </h4>
+                                                <p> {consulta.idPacienteNavigation.nomeCompleto} </p>
                                             </div>
                                             <div className="linha_campos_cadastro_consultas">
-                                                <label for="">Médico:</label>
-                                                <input type="text" value={consulta.idMedicoNavigation.nomeCompleto} />
+                                                <h4> Médico: </h4>
+                                                <p> {consulta.idMedicoNavigation.nomeCompleto} </p>
                                             </div>
                                             <div className="linha_campos_cadastro_consultas">
-                                                <label for="">Data:</label>
-                                                <input type="datetime" value={consulta.dataHorario} />
+                                                <h4> Data: </h4>
+                                                <p> {consulta.dataHorario} </p>
                                             </div>
                                             <div className="linha_campos_cadastro_consultas">
-                                                <label for="">Situação:</label>
-                                                <input type="text" value={consulta.idSituacaoNavigation.titulo} />
+                                                <h4> Situação: </h4>
+                                                <p> {consulta.idSituacaoNavigation.titulo} </p>
                                             </div>
                                             <div className="linha_campos_cadastro_consultas">
-                                                <label for="">Resumo:</label>
-                                                <textarea name="" id="" cols="30" rows="3">{consulta.resumo}</textarea>
+                                                <h4> Resumo: </h4>
+                                                <p> {consulta.resumo} </p>
                                             </div>
                                         </div>
-                                    </form>
+                                    </article>
                                 )
                             })
                         }
                     </div>
                     <div className="editar_descricao">
                         <h2>Resumo do Atendimento</h2>
-                        <form onSubmit={ atualizarResumo } className="conteiner_form_editar_descricao">
+                        <form onSubmit={atualizarResumo} className="conteiner_form_editar_descricao">
                             <div className="form_inputs_editar_descricao">
-                                <input type="text" placeholder="Nº da Consulta" name="idConsulta" value={ idDaConsulta } onChange={(campo) => setIdDaConsulta(campo.target.value)}/>
-                                <textarea name="resumoAtualizado" id="" cols="30" rows="10" placeholder="Insira abaixo a descrição do atendimento" value={ descricaoAtualizada } onChange={(campo) => setDescricaoAtualizada(campo.target.value)}></textarea>
+                                <input type="text" placeholder="Nº da Consulta" name="idConsulta" value={idDaConsulta} onChange={(campo) => setIdDaConsulta(campo.target.value)} />
+                                <textarea name="resumoAtualizado" id="" cols="30" rows="10" placeholder="Insira abaixo a descrição do atendimento" value={descricaoAtualizada} onChange={(campo) => setDescricaoAtualizada(campo.target.value)}></textarea>
                             </div>
                             <button>Inserir</button>
                         </form>

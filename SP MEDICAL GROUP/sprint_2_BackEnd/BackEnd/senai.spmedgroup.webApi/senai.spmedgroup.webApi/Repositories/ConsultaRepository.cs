@@ -47,7 +47,8 @@ namespace senai.spmedgroup.webApi.Repositories
         public List<Consulta> ListarTodas()
         {
             //return metodos.Consultas.ToList();
-            return metodos.Consultas.Include(p => p.IdPacienteNavigation).Include(m => m.IdMedicoNavigation).Include(s => s.IdSituacaoNavigation).ToList();
+            //return metodos.Consultas.Include(p => p.IdPacienteNavigation).Include(m => m.IdMedicoNavigation).Include(s => s.IdSituacaoNavigation).ToList();
+            return metodos.Consultas.Select(c => new Consulta() { DataHorario = c.DataHorario , IdConsulta = c.IdConsulta, IdMedico = c.IdMedico, IdPaciente = c.IdPaciente, IdSituacao = c.IdSituacao, Resumo = c.Resumo, IdMedicoNavigation = c.IdMedicoNavigation, IdPacienteNavigation = c.IdPacienteNavigation, IdSituacaoNavigation = c.IdSituacaoNavigation }).ToList();
         }
 
         public void IncluirDescricao(int idConsulta, ConsultaViewModel descricaoAtualizada)
