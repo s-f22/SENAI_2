@@ -35,15 +35,6 @@
     align-items: center;
 }
 
-.body_medicos{
-    background-image: url(../img/doctor.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* height: 1360px; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 .header_cadastro_consultas{
     background-image: linear-gradient(to right, var(--VERDE_A), var(--VERDE_B));
@@ -173,6 +164,14 @@
     justify-content: space-evenly;
 }
 
+.cadastrar_consultas_cadastro_consultas h2{
+    font-family: var(--fonte);
+    color: var(--Azul);
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
 
 .footer_cadastro_consultas{
     background-color: var(--VERDE_B);
@@ -252,6 +251,7 @@
     justify-content: space-around;
     width: 380px;
     height: 180px;
+    align-items: center;
 }
 
 .form_inputs_cadastro_consultas{
@@ -268,8 +268,18 @@
     height: 40px;
 }
 
-.form_inputs_cadastro_consultas button{
+.form_inputs_cadastro_consultas select{
+    width: 100%;
+    height: 40px;
+}
+
+.conteiner_form_cadastro_consultas button{
     margin-top: 30px;
+    height: 40px;
+    width: 30%;
+    background-color: var(--Azul);
+    border-radius: 5px;
+    color: white;
 }
 
 hr{
@@ -396,7 +406,15 @@ hr{
 /* --------------------- 03 MEDICOS ------------------------- */
 
 
-
+.body_medicos{
+    background-image: url(../img/doctor.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 1360px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 .editar_descricao{
@@ -457,3 +475,28 @@ hr{
 
 
 /* --------------------- 03 MEDICOS ------------------------- */
+
+
+
+
+
+
+
+
+
+/* --------------------- 04 PACIENTES ------------------------- */
+
+.body_pacientes{
+    background-image: url(../img/pacient.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 1360px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+/* --------------------- 04 PACIENTES ------------------------- */

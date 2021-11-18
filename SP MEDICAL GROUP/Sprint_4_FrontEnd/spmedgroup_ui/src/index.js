@@ -15,10 +15,12 @@ import './assets/css/style_geral.css';
 
 import HomeLogin from '../src/pages/login/App';
 import Administrador from '../src/pages/administrador/administrador'
-import Medico from './pages/administrador/medico';
+import Medico from './pages/medico/medico';
+import Paciente from './pages/paciente/paciente';
 
 
 import reportWebVitals from './reportWebVitals';
+
 
 
 //---------------------------------------------------------------------------------------------------------------------------------
@@ -72,6 +74,7 @@ const routing = (
         <Route path="/login" component={HomeLogin} />
         <PermissaoAdm path="/administrador" component={Administrador} />
         <PermissaoMedico path="/medico" component={Medico} />
+        <PermissaoPaciente path="/paciente" component={Paciente} />
       </Switch>
     </div>
   </Router>

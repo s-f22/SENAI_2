@@ -52,8 +52,8 @@ export default function Administrador() {
             idPaciente: idPac,
             dataHorario: dataConsulta,
             idMedico: idMed
-          };
-      
+        };
+
 
         axios.post('http://localhost:5000/api/Consultas', consulta,
             {
@@ -71,7 +71,7 @@ export default function Administrador() {
                 }
             })
             .catch(
-                erro => console.log(erro, "DEU RUIM"), setDataConsulta(  ),
+                erro => console.log(erro, "DEU RUIM"), setDataConsulta(),
                 setIdPac(0), setIdMed(0), setIsLoading(false)
             );
     }
@@ -160,10 +160,10 @@ export default function Administrador() {
                     </div>
                     <div className="cadastrar_consultas_cadastro_consultas">
                         <h2>Cadastrar Consulta</h2>
-                        <form onSubmit={ cadastrarConsulta } className="conteiner_form_cadastro_consultas">
+                        <form onSubmit={cadastrarConsulta} className="conteiner_form_cadastro_consultas">
                             <div className="form_inputs_cadastro_consultas">
 
-                                <input type="datetime-local" name="dataConsulta" value={dataConsulta} onChange={(campo) => setDataConsulta(campo.target.value)}/>
+                                <input type="datetime-local" name="dataConsulta" value={dataConsulta} onChange={(campo) => setDataConsulta(campo.target.value)} />
 
                                 <select
                                     name="paciente"
