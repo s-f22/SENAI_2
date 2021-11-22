@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SENAI_2\\SP MEDICAL GROUP\\sprint_2_BackEnd\\BackEnd\\senai.spmedgroup.webApi\\senai.spmedgroup.webApi\\senai.spmedgroup.webApi.csproj": {}
+    "C:\\Users\\33848821800\\Documents\\SENAI_2\\SP MEDICAL GROUP\\sprint_2_BackEnd\\BackEnd\\senai.spmedgroup.webApi\\senai.spmedgroup.webApi\\senai.spmedgroup.webApi.csproj": {}
   },
   "projects": {
-    "D:\\SENAI_2\\SP MEDICAL GROUP\\sprint_2_BackEnd\\BackEnd\\senai.spmedgroup.webApi\\senai.spmedgroup.webApi\\senai.spmedgroup.webApi.csproj": {
+    "C:\\Users\\33848821800\\Documents\\SENAI_2\\SP MEDICAL GROUP\\sprint_2_BackEnd\\BackEnd\\senai.spmedgroup.webApi\\senai.spmedgroup.webApi\\senai.spmedgroup.webApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SENAI_2\\SP MEDICAL GROUP\\sprint_2_BackEnd\\BackEnd\\senai.spmedgroup.webApi\\senai.spmedgroup.webApi\\senai.spmedgroup.webApi.csproj",
+        "projectUniqueName": "C:\\Users\\33848821800\\Documents\\SENAI_2\\SP MEDICAL GROUP\\sprint_2_BackEnd\\BackEnd\\senai.spmedgroup.webApi\\senai.spmedgroup.webApi\\senai.spmedgroup.webApi.csproj",
         "projectName": "senai.spmedgroup.webApi",
-        "projectPath": "D:\\SENAI_2\\SP MEDICAL GROUP\\sprint_2_BackEnd\\BackEnd\\senai.spmedgroup.webApi\\senai.spmedgroup.webApi\\senai.spmedgroup.webApi.csproj",
-        "packagesPath": "C:\\Users\\Werther\\.nuget\\packages\\",
-        "outputPath": "D:\\SENAI_2\\SP MEDICAL GROUP\\sprint_2_BackEnd\\BackEnd\\senai.spmedgroup.webApi\\senai.spmedgroup.webApi\\obj\\",
+        "projectPath": "C:\\Users\\33848821800\\Documents\\SENAI_2\\SP MEDICAL GROUP\\sprint_2_BackEnd\\BackEnd\\senai.spmedgroup.webApi\\senai.spmedgroup.webApi\\senai.spmedgroup.webApi.csproj",
+        "packagesPath": "C:\\Users\\33848821800\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\33848821800\\Documents\\SENAI_2\\SP MEDICAL GROUP\\sprint_2_BackEnd\\BackEnd\\senai.spmedgroup.webApi\\senai.spmedgroup.webApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Werther\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\33848821800\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

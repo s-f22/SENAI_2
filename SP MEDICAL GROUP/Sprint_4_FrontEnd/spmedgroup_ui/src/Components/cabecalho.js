@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../assets/img/logo_spmedgroup_v2.png'
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 export default function Cabecalho() {
 
@@ -8,7 +8,7 @@ export default function Cabecalho() {
 
     function LogOut(){
         
-        localStorage.setItem( [] );
+        localStorage.clear();
         history.push('/login');
         console.log("Logout efetuado com sucesso.")
 
@@ -23,7 +23,7 @@ export default function Cabecalho() {
                     <a href="">Convênios</a>
                     <a href="">Nossas Unidades</a>
                     <a href="">Especialidades</a>
-                    <a onClick={() => LogOut()}>Logout</a>
+                    <Link onClick={() => LogOut()}>Logout</Link>
                 </nav>
             </div>
         </header>
