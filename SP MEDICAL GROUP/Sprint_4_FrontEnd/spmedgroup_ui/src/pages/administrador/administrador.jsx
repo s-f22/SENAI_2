@@ -124,90 +124,94 @@ export default function Administrador() {
 
             <div className="grid">
                 <section className="conteudos_cadastro_consultas">
-                    <div className="listar_consultas_cadastro_consultas">
+                    <div className="container_listar_consultas">
                         <h2>Lista de Consultas</h2>
-                        {
-                            listaConsultas.map((consulta) => {
-                                return (
-                                    <form action="" className="infos_card_cadastro_consultas" key={consulta.idConsulta}>
-                                        <h3 >Consulta {consulta.idConsulta}</h3>
-                                        <div className="campos_cadastro_consultas">
-                                            <div className="linha_campos_cadastro_consultas">
-                                                <label for="">Paciente:</label>
-                                                <input type="text" value={consulta.idPacienteNavigation.nomeCompleto} />
+                        <div className="listar_consultas_cadastro_consultas">
+                            {
+                                listaConsultas.map((consulta) => {
+                                    return (
+                                        <article className="infos_card_cadastro_consultas" key={consulta.idConsulta}>
+                                            <h3 >Consulta {consulta.idConsulta}</h3>
+                                            <div className="campos_cadastro_consultas">
+                                                <div className="linha_campos_cadastro_consultas">
+                                                    <h4> Paciente: </h4>
+                                                    <p> {consulta.idPacienteNavigation.nomeCompleto} </p>
+                                                </div>
+                                                <div className="linha_campos_cadastro_consultas">
+                                                    <h4> Médico: </h4>
+                                                    <p> {consulta.idMedicoNavigation.nomeCompleto} </p>
+                                                </div>
+                                                <div className="linha_campos_cadastro_consultas">
+                                                    <h4> Data: </h4>
+                                                    <p> {consulta.dataHorario} </p>
+                                                </div>
+                                                <div className="linha_campos_cadastro_consultas">
+                                                    <h4> Situação: </h4>
+                                                    <p> {consulta.idSituacaoNavigation.titulo} </p>
+                                                </div>
+                                                <div className="linha_campos_cadastro_consultas">
+                                                    <h4> Resumo: </h4>
+                                                    <p> {consulta.resumo} </p>
+                                                </div>
                                             </div>
-                                            <div className="linha_campos_cadastro_consultas">
-                                                <label for="">Médico:</label>
-                                                <input type="text" value={consulta.idMedicoNavigation.nomeCompleto} />
-                                            </div>
-                                            <div className="linha_campos_cadastro_consultas">
-                                                <label for="">Data:</label>
-                                                <input type="datetime" value={consulta.dataHorario} />
-                                            </div>
-                                            <div className="linha_campos_cadastro_consultas">
-                                                <label for="">Situação:</label>
-                                                <input type="text" value={consulta.idSituacaoNavigation.titulo} />
-                                            </div>
-                                            <div className="linha_campos_cadastro_consultas">
-                                                <label for="">Resumo:</label>
-                                                <textarea name="" id="" cols="30" rows="3">{consulta.resumo}</textarea>
-                                            </div>
-                                        </div>
-                                    </form>
-                                )
-                            })
-                        }
+                                        </article>
+                                    )
+                                })
+                            }
+                        </div>
                     </div>
-                    <div className="cadastrar_consultas_cadastro_consultas">
+                    <div className="container_cadastrar_consultas">
                         <h2>Cadastrar Consulta</h2>
-                        <form onSubmit={cadastrarConsulta} className="conteiner_form_cadastro_consultas">
-                            <div className="form_inputs_cadastro_consultas">
+                        <div className="cadastrar_consultas_cadastro_consultas">
+                            <form onSubmit={cadastrarConsulta} className="conteiner_form_cadastro_consultas">
+                                <div className="form_inputs_cadastro_consultas">
 
-                                <input type="datetime-local" name="dataConsulta" value={dataConsulta} onChange={(campo) => setDataConsulta(campo.target.value)} />
+                                    <input type="datetime-local" name="dataConsulta" value={dataConsulta} onChange={(campo) => setDataConsulta(campo.target.value)} />
 
-                                <select
-                                    name="paciente"
-                                    value={idPac}
-                                    onChange={(campo) => setIdPac(campo.target.value)}
-                                >
-                                    <option value="0">Selecione o paciente:</option>
-                                    {
-                                        listaPacientes.map((paciente) => {
-                                            return (
-                                                <option
-                                                    key={paciente.idPaciente}
-                                                    value={paciente.idPaciente}
-                                                >
-                                                    {paciente.nomeCompleto}
-                                                </option>
-                                            );
-                                        })
-                                    }
-                                </select>
+                                    <select
+                                        name="paciente"
+                                        value={idPac}
+                                        onChange={(campo) => setIdPac(campo.target.value)}
+                                    >
+                                        <option value="0">Selecione o paciente:</option>
+                                        {
+                                            listaPacientes.map((paciente) => {
+                                                return (
+                                                    <option
+                                                        key={paciente.idPaciente}
+                                                        value={paciente.idPaciente}
+                                                    >
+                                                        {paciente.nomeCompleto}
+                                                    </option>
+                                                );
+                                            })
+                                        }
+                                    </select>
 
-                                <select
-                                    name="medico"
-                                    value={idMed}
-                                    onChange={(campo) => setIdMed(campo.target.value)}
-                                >
-                                    <option value="0">Selecione o medico:</option>
-                                    {
-                                        listaMedicos.map((medico) => {
-                                            return (
-                                                <option
-                                                    key={medico.idMedico}
-                                                    value={medico.idMedico}
-                                                >
-                                                    {medico.nomeCompleto}
-                                                </option>
-                                            );
-                                        })
-                                    }
-                                </select>
+                                    <select
+                                        name="medico"
+                                        value={idMed}
+                                        onChange={(campo) => setIdMed(campo.target.value)}
+                                    >
+                                        <option value="0">Selecione o medico:</option>
+                                        {
+                                            listaMedicos.map((medico) => {
+                                                return (
+                                                    <option
+                                                        key={medico.idMedico}
+                                                        value={medico.idMedico}
+                                                    >
+                                                        {medico.nomeCompleto}
+                                                    </option>
+                                                );
+                                            })
+                                        }
+                                    </select>
 
-                            </div>
-                            <button type="submit">Cadastrar</button>
-                        </form>
+                                </div>
+                                <button type="submit">Cadastrar</button>
+                            </form>
+                        </div>
                     </div>
 
                 </section>

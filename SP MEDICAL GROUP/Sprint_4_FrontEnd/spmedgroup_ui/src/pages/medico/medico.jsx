@@ -81,49 +81,53 @@ export default function Medico() {
 
             <div className="grid">
                 <section className="conteudos_cadastro_consultas">
-                    <div className="listar_consultas_cadastro_consultas">
+                    <div className="container_listar_consultas">
                         <h2>Lista de Consultas</h2>
-                        {
-                            listaConsultas.map((consulta) => {
-                                return (
-                                    <article className="infos_card_cadastro_consultas" key={consulta.idConsulta}>
-                                        <h3> Consulta {consulta.idConsulta} </h3>
-                                        <div className="campos_cadastro_consultas">
-                                            <div className="linha_campos_cadastro_consultas">
-                                                <h4> Paciente: </h4>
-                                                <p> {consulta.idPacienteNavigation.nomeCompleto} </p>
+                        <div className="listar_consultas_cadastro_consultas">
+                            {
+                                listaConsultas.map((consulta) => {
+                                    return (
+                                        <article className="infos_card_cadastro_consultas" key={consulta.idConsulta}>
+                                            <h3> Consulta {consulta.idConsulta} </h3>
+                                            <div className="campos_cadastro_consultas">
+                                                <div className="linha_campos_cadastro_consultas">
+                                                    <h4> Paciente: </h4>
+                                                    <p> {consulta.idPacienteNavigation.nomeCompleto} </p>
+                                                </div>
+                                                <div className="linha_campos_cadastro_consultas">
+                                                    <h4> Médico: </h4>
+                                                    <p> {consulta.idMedicoNavigation.nomeCompleto} </p>
+                                                </div>
+                                                <div className="linha_campos_cadastro_consultas">
+                                                    <h4> Data: </h4>
+                                                    <p> {consulta.dataHorario} </p>
+                                                </div>
+                                                <div className="linha_campos_cadastro_consultas">
+                                                    <h4> Situação: </h4>
+                                                    <p> {consulta.idSituacaoNavigation.titulo} </p>
+                                                </div>
+                                                <div className="linha_campos_cadastro_consultas">
+                                                    <h4> Resumo: </h4>
+                                                    <p> {consulta.resumo} </p>
+                                                </div>
                                             </div>
-                                            <div className="linha_campos_cadastro_consultas">
-                                                <h4> Médico: </h4>
-                                                <p> {consulta.idMedicoNavigation.nomeCompleto} </p>
-                                            </div>
-                                            <div className="linha_campos_cadastro_consultas">
-                                                <h4> Data: </h4>
-                                                <p> {consulta.dataHorario} </p>
-                                            </div>
-                                            <div className="linha_campos_cadastro_consultas">
-                                                <h4> Situação: </h4>
-                                                <p> {consulta.idSituacaoNavigation.titulo} </p>
-                                            </div>
-                                            <div className="linha_campos_cadastro_consultas">
-                                                <h4> Resumo: </h4>
-                                                <p> {consulta.resumo} </p>
-                                            </div>
-                                        </div>
-                                    </article>
-                                )
-                            })
-                        }
+                                        </article>
+                                    )
+                                })
+                            }
+                        </div>
                     </div>
-                    <div className="editar_descricao">
+                    <div className="container_editar_descricao">
                         <h2>Resumo do Atendimento</h2>
-                        <form onSubmit={atualizarResumo} className="conteiner_form_editar_descricao">
-                            <div className="form_inputs_editar_descricao">
-                                <input type="text" placeholder="Nº da Consulta" name="idConsulta" value={idDaConsulta} onChange={(campo) => setIdDaConsulta(campo.target.value)} />
-                                <textarea name="resumoAtualizado" id="" cols="30" rows="10" placeholder="Insira abaixo a descrição do atendimento" value={descricaoAtualizada} onChange={(campo) => setDescricaoAtualizada(campo.target.value)}></textarea>
-                            </div>
-                            <button>Inserir</button>
-                        </form>
+                        <div className="editar_descricao">
+                            <form onSubmit={atualizarResumo} className="conteiner_form_editar_descricao">
+                                <div className="form_inputs_editar_descricao">
+                                    <input type="text" placeholder="Nº da Consulta" name="idConsulta" value={idDaConsulta} onChange={(campo) => setIdDaConsulta(campo.target.value)} />
+                                    <textarea name="resumoAtualizado" id="" cols="30" rows="10" placeholder="Insira abaixo a descrição do atendimento" value={descricaoAtualizada} onChange={(campo) => setDescricaoAtualizada(campo.target.value)}></textarea>
+                                </div>
+                                <button>Inserir</button>
+                            </form>
+                        </div>
                     </div>
 
 

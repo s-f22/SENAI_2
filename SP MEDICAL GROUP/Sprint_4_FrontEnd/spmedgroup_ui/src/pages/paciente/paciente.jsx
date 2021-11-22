@@ -12,7 +12,7 @@ export default function Paciente() {
     const [listaConsultas, setListaConsultas] = useState([]);
 
     const [isLoading, setIsLoading] = useState(false);
-    
+
 
 
     function buscarConsultas() {
@@ -48,43 +48,44 @@ export default function Paciente() {
 
             <div className="grid">
                 <section className="conteudos_cadastro_consultas">
-                    <div className="listar_consultas_cadastro_consultas">
+                    <div className="container_listar_consultas">
                         <h2>Lista de Consultas</h2>
-                        {
-                            listaConsultas.map((consulta) => {
-                                return (
-                                    <article className="infos_card_cadastro_consultas" key={consulta.idConsulta}>
-                                        <h3> Consulta {consulta.idConsulta} </h3>
-                                        <div className="campos_cadastro_consultas">
-                                            <div className="linha_campos_cadastro_consultas">
-                                                <h4> Paciente: </h4>
-                                                <p> {consulta.idPacienteNavigation.nomeCompleto} </p>
+                        <div className="listar_consultas_cadastro_consultas">
+                            {
+                                listaConsultas.map((consulta) => {
+                                    return (
+                                        <article className="infos_card_cadastro_consultas" key={consulta.idConsulta}>
+                                            <h3> Consulta {consulta.idConsulta} </h3>
+                                            <div className="campos_cadastro_consultas">
+                                                <div className="linha_campos_cadastro_consultas">
+                                                    <h4> Paciente: </h4>
+                                                    <p> {consulta.idPacienteNavigation.nomeCompleto} </p>
+                                                </div>
+                                                <div className="linha_campos_cadastro_consultas">
+                                                    <h4> Médico: </h4>
+                                                    <p> {consulta.idMedicoNavigation.nomeCompleto} </p>
+                                                </div>
+                                                <div className="linha_campos_cadastro_consultas">
+                                                    <h4> Data: </h4>
+                                                    <p> {consulta.dataHorario} </p>
+                                                </div>
+                                                <div className="linha_campos_cadastro_consultas">
+                                                    <h4> Situação: </h4>
+                                                    <p> {consulta.idSituacaoNavigation.titulo} </p>
+                                                </div>
+                                                <div className="linha_campos_cadastro_consultas">
+                                                    <h4> Resumo: </h4>
+                                                    <p> {consulta.resumo} </p>
+                                                </div>
                                             </div>
-                                            <div className="linha_campos_cadastro_consultas">
-                                                <h4> Médico: </h4>
-                                                <p> {consulta.idMedicoNavigation.nomeCompleto} </p>
-                                            </div>
-                                            <div className="linha_campos_cadastro_consultas">
-                                                <h4> Data: </h4>
-                                                <p> {consulta.dataHorario} </p>
-                                            </div>
-                                            <div className="linha_campos_cadastro_consultas">
-                                                <h4> Situação: </h4>
-                                                <p> {consulta.idSituacaoNavigation.titulo} </p>
-                                            </div>
-                                            <div className="linha_campos_cadastro_consultas">
-                                                <h4> Resumo: </h4>
-                                                <p> {consulta.resumo} </p>
-                                            </div>
-                                        </div>
-                                    </article>
-                                )
-                            })
-                        }
+                                        </article>
+                                    )
+                                })
+                            }
+                        </div>
+
+
                     </div>
-                    
-
-
                 </section>
             </div>
 

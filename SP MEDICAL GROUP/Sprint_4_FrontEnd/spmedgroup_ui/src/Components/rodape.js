@@ -9,7 +9,7 @@ export default function Rodape() {
     return (
         <footer className="footer_cadastro_consultas">
                 <div className="container_footer_cadastro_consultas">
-                    <div className="acima_linha_cadastro_consultas">
+                    {/* <div className="acima_linha_cadastro_consultas">
                         <table className="tabela_footer_cadastro_consultas">
                             <thead>
                                 <tr>
@@ -37,10 +37,11 @@ export default function Rodape() {
                             </tbody>
                         </table>
                         <img src={logo} alt="" />
-                    </div>
-                    <hr />
+                    </div> */}
+                    {/* <hr /> */}
                     <div className="abaixo_linha_cadastro_consultas">
                         <p>SP Medical Group 2021. Saúde Online</p>
+                        <hr />
                         <div className="box_seguir_cadastro_consultas">
                             <p>Siga-nos: </p>
                             <img src={face} alt="" />

@@ -9,8 +9,9 @@
 :root{
     /* VARIAVEIS */
     --grid: 1200px;
-    --altura_header: calc(var(--grid) * 0.058333333);
-    --altura_footer: calc(var(--grid) * 0.275);
+    --altura_header: 7.25vh;
+    --altura_footer: 7.25vh;
+    --altura_body: 85.5vh;
     --cor_texto: var(--Branco);
     --fonte: 'Montserrat', sans-serif;
     
@@ -29,7 +30,7 @@
     background-image: url(..//img/sche.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    /* height: 1360px; */
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,13 +55,12 @@
 .posix_header_cadastro_consultas{
     display: flex;
     justify-content: space-between;
-    position: absolute
+    
 }
 
 .spm_logo_cadastro_consultas{
-    position: relative;
-    height: 16.75%;
-    width: 16.75%;
+    
+    height: 100%;
 }
 
 .menu_principal_cadastro_consultas{
@@ -70,7 +70,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 25px;
 }
 .menu_principal_cadastro_consultas a{
     font-family: 'Montserrat', sans-serif;
@@ -84,38 +83,47 @@
     /* background-color: yellow; */
     display: flex;
     width: 100%;
-    height: 960px;
+    height: var(--altura_body);
     justify-content: space-between;
-    padding-top: 15%;
+    padding-top: 1%;
+}
+
+.container_listar_consultas{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    height: 100%;
 }
 
 
 .listar_consultas_cadastro_consultas{
-    background-color: rgba(255,255,255,0.75);
+    background-color: rgba(255,255,255,0.33);
     border-radius: 20px;
-    width: 46%;
-    height: 73%;
+    width: 100%;
+    height: 90%;
     display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
     overflow-y: scroll;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
-.listar_consultas_cadastro_consultas h2{
+.container_listar_consultas h2{
     font-family: var(--fonte);
     color: var(--Azul);
     font-size: 24px;
-    text-align: left;
-    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 5px;
 }
 
 
 .infos_card_cadastro_consultas{
     background-color: var(--VERDE_B);
-    width: 90%;
+    width: 45%;
     height: fit-content;
     padding: 3%;
     text-align: left;
@@ -130,15 +138,20 @@
     border-style: solid;
     border-width: thin;
     border-color: var(--VERDE_C);
+    margin-top: 1%;
 }
 
 .campos_cadastro_consultas{
     margin-top: 3%;
     background-color: var(--VERDE_C);
-    width: 90%;
+    width: 100%;
     height: fit-content;
     padding: 5%;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    text-align: right;
 }
 
 .linha_campos_cadastro_consultas{
@@ -154,22 +167,34 @@
     
 }
 
-.cadastrar_consultas_cadastro_consultas{
-    background-color: rgba(255,255,255,0.75);
-    width: 46%;
-    height: 47%;
+.container_cadastrar_consultas{
+    /* background-color: rgba(255,255,255,0.75); */
+    width: 25%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-start;
 }
 
-.cadastrar_consultas_cadastro_consultas h2{
+.cadastrar_consultas_cadastro_consultas{
+    background-color: rgba(255,255,255,0.33);
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 5px;
+    padding-bottom: 10px;
+}
+
+.container_cadastrar_consultas h2{
     font-family: var(--fonte);
     color: var(--Azul);
     font-size: 24px;
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 
@@ -229,13 +254,14 @@
     font-family: var(--fonte);
     color: var(--Branco);
     font-size: 15px;
+    height: 33%;
 }
 
 .box_seguir_cadastro_consultas{
     display: flex;
     justify-content: right;
     align-items: center;
-    height: calc( var(--altura_footer) * 0.15 );
+    height: 100%;
     width: 250px;
 }
 
@@ -249,32 +275,41 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 380px;
+    width: 100%;
     height: 180px;
     align-items: center;
+    margin-top: 25px;
 }
 
 .form_inputs_cadastro_consultas{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
     height: 100%;
 }
 
 .form_inputs_cadastro_consultas input{
-    width: 100%;
+    width: 80%;
     height: 40px;
+    font-family: var(--fonte);
+    color: var(--Azul);
+    font-size: 15px;
+    background-color: rgba(255,255,255,0.75);
+    border-radius: 5px;
 }
 
 .form_inputs_cadastro_consultas select{
-    width: 100%;
+    width: 80%;
     height: 40px;
+    font-family: var(--fonte);
+    color: var(--Azul);
+    font-size: 15px;
 }
 
 .conteiner_form_cadastro_consultas button{
-    margin-top: 30px;
+    
     height: 40px;
     width: 30%;
     background-color: var(--Azul);
@@ -284,6 +319,7 @@
 
 hr{
     color: white;
+    height: 100%;
 }
 
 /* -------------- 01 CADASTRO CONSULTAS ------------------- */
@@ -410,21 +446,26 @@ hr{
     background-image: url(../img/doctor.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    /* height: 1360px; */
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.container_editar_descricao{
+    width: 25%;
+}
 
 .editar_descricao{
     background-color: rgba(255,255,255,0.75);
-    width: 46%;
-    height: 47%;
+    width: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    margin-top: 25px;
+    padding-bottom: 10px;
 }
 
 .form_inputs_editar_descricao{
@@ -441,11 +482,11 @@ hr{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 380px;
+    width: 100%;
     height: 180px;
 }
 
-.listar_consultas_medicos{
+/* .listar_consultas_medicos{
     background-color: rgba(255,255,255,0.75);
     border-radius: 20px;
     width: 46%;
@@ -457,7 +498,7 @@ hr{
     overflow-y: scroll;
     padding-top: 50px;
     padding-bottom: 50px;
-}
+} */
 
 .listar_consultas_cadastro_consultas img{
     
@@ -465,12 +506,12 @@ hr{
     margin-bottom: 20px;
 }
 
-.editar_descricao h2{
+.container_editar_descricao h2{
     font-family: var(--fonte);
     color: var(--Azul);
     font-size: 24px;
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 
@@ -490,7 +531,7 @@ hr{
     background-image: url(../img/pacient.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
-    /* height: 1360px; */
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
