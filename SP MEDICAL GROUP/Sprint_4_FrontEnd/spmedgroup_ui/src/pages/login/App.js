@@ -88,6 +88,7 @@ function App() {
                         <div className="inputs_login">
                             <input type="email" value={email} onChange={ (campo) => setEmail( campo.target.value ) } placeholder="E-mail" />
                             <input type="password" value={senha} onChange={ (campo) => setSenha( campo.target.value ) } placeholder="Senha" />
+                            <p>{msgErro}</p>
                             <button type="submit"
                                 disabled={ isLoading ? true : false }
                             >Entrar</button>

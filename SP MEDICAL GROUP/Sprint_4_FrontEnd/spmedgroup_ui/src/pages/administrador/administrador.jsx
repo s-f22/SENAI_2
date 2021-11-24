@@ -166,8 +166,6 @@ export default function Administrador() {
                             <form onSubmit={cadastrarConsulta} className="conteiner_form_cadastro_consultas">
                                 <div className="form_inputs_cadastro_consultas">
 
-                                    <input type="datetime-local" name="dataConsulta" value={dataConsulta} onChange={(campo) => setDataConsulta(campo.target.value)} />
-
                                     <select
                                         name="paciente"
                                         value={idPac}
@@ -207,6 +205,8 @@ export default function Administrador() {
                                             })
                                         }
                                     </select>
+
+                                    <input type="datetime-local" name="dataConsulta" value={dataConsulta} onChange={(campo) => setDataConsulta(campo.target.value)} />
 
                                 </div>
                                 <button type="submit">Cadastrar</button>

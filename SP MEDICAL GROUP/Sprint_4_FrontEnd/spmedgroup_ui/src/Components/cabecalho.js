@@ -8,7 +8,7 @@ export default function Cabecalho() {
 
     function LogOut(){
         
-        localStorage.clear();
+        localStorage.removeItem('usuario-login');
         history.push('/login');
         console.log("Logout efetuado com sucesso.")
 

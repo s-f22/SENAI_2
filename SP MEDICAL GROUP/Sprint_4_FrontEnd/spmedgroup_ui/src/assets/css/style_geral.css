@@ -343,7 +343,7 @@ hr{
 .body_login{
     background-image: url(..//img/logo_spmedgroup_LOGIN.png);
     background-repeat: no-repeat;
-    background-position-x: right;
+    background-position-x: center;
     background-size: 100vh;
     height: 100vh;
     display: flex;
@@ -457,6 +457,15 @@ hr{
     font-family: var(--fonte);
     font-weight: bolder;
 }
+
+/* pseudo-classe para efeito de desativar botão */
+.inputs_login button:disabled,
+button[disabled]{
+  /* border: 1px solid #999999; */
+  background-color: rgba(255,255,255,0.75);
+  color: white
+}
+
 
 
 
