@@ -26,9 +26,9 @@ import {
 
 
 
-export default class Home extends Component {
+export default class Medico extends Component {
     constructor(props) {
-        super(props)
+        super(props);
     }
 
     Logout = async () => {
@@ -60,9 +60,9 @@ export default class Home extends Component {
                 </View>
                 <View style={styles.Section}>
                     <Text style={styles.SectionTexto}>
-                        Crie os seus escopos de projetos públicos
+                        Crie os seus escopos de projetos públicos medico
                     </Text>
-                    <TouchableOpacity onPress={this.props.navigation.navigate('Cadastrar_Escopo')}>
+                    <TouchableOpacity >
                         <Image source={require('../../assets/img/cadastro.png')} style={styles.SectionImg} />
                     </TouchableOpacity>
                 </View>

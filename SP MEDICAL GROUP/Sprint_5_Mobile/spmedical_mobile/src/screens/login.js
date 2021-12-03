@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
@@ -13,12 +13,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import api from '../services/api';
 
+import jwt_decode from "jwt-decode";
+
 export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: 'helena.souza@spmedicalgroup.com.br',
-      senha: '41254970',
+      email: 'alexandre@gmail.com',
+      senha: '34594675',
     };
   }
   //como vamos trabalhar com assync historage,
@@ -28,7 +30,7 @@ export default class Login extends Component {
     //vamos utilizar console.warn.
 
     //apenas para teste.
-    console.warn(this.state.email + ' ' + this.state.senha);
+    //console.warn(this.state.email + ' ' + this.state.senha);
 
     const resposta = await api.post('/Logins', {
       email: this.state.email, //ADM@ADM.COM
@@ -39,13 +41,19 @@ export default class Login extends Component {
     const token = resposta.data.token;
     await AsyncStorage.setItem('userToken', token);
 
+    //let base64 = (await AsyncStorage.getItem('userToken')).split('.')[1];
+    let userRole = jwt_decode(token).role;
+
+
     //agora sim podemos descomentar.
-    if (resposta.status == 200) {
-        console.warn(token);
+    if (resposta.status == 200 && userRole === '2') {
       this.props.navigation.navigate('pgMedico');
     }
+    else if (resposta.status == 200 && userRole === '3') {
+      this.props.navigation.navigate('pgPaciente');
+    }
 
-    console.warn(token);
+
 
     //
   };
@@ -69,7 +77,7 @@ export default class Login extends Component {
             placeholderTextColor="#FFF"
             keyboardType="email-address"
             // ENVENTO PARA FAZERMOS ALGO ENQUANTO O TEXTO MUDA
-            onChangeText={email => this.setState({email})}
+            onChangeText={email => this.setState({ email })}
           />
 
           <TextInput
@@ -79,7 +87,7 @@ export default class Login extends Component {
             keyboardType="default" //para default nao obrigatorio.
             secureTextEntry={true} //proteje a senha.
             // ENVENTO PARA FAZERMOS ALGO ENQUANTO O TEXTO MUDA
-            onChangeText={senha => this.setState({senha})}
+            onChangeText={senha => this.setState({ senha })}
           />
 
           <TouchableOpacity
@@ -97,7 +105,7 @@ const styles = StyleSheet.create({
   //antes da main
   overlay: {
     ...StyleSheet.absoluteFillObject, //todas as prop do styleShhet, e vamos aplica o abosluteFIL...
-    backgroundColor: 'rgba(183,39,255,0.79)', //rgba pq vamos trabalhar com transparencia.
+    backgroundColor: 'rgba(3,166,150,0.75)', //rgba pq vamos trabalhar com transparencia.
   },
 
   // conteúdo da main
@@ -130,7 +138,7 @@ const styles = StyleSheet.create({
   btnLoginText: {
     fontSize: 12, //aumentar um pouco
     fontFamily: 'Open Sans Light', //troca de fonte
-    color: '#B727FF', //mesma cor identidade
+    color: 'rgba(3,166,150,1)', //mesma cor identidade
     letterSpacing: 6, //espacamento entre as letras
     textTransform: 'uppercase', //estilo maiusculo
   },
@@ -143,6 +151,6 @@ const styles = StyleSheet.create({
     borderColor: '#FFFFFF',
     borderWidth: 1,
     borderRadius: 4,
-    shadowOffset: {height: 1, width: 1},
+    shadowOffset: { height: 1, width: 1 },
   },
 });

@@ -10,7 +10,8 @@ import {
     View,
     Image,
     ImageBackground,
-    TouchableOpacity
+    TouchableOpacity,
+    FlatList,
 } from 'react-native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -29,6 +30,9 @@ import {
 export default class Home extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            listaConsultas: [],
+        };
     }
 
     Logout = async () => {
@@ -36,88 +40,66 @@ export default class Home extends Component {
         this.props.navigation.navigate('Login');
     }
 
+
+    buscarConsultas = async () => {
+        const resposta = await api.get('/Usuarios/ListarMinhasConsultas');
+        // console.warn(resposta);
+        const dadosDaApi = resposta.data;
+        this.setState({ listaConsultas: dadosDaApi });
+    };
+
+    componentDidMount() {
+        this.buscarConsultas();
+    }
+
+
     render() {
         return (
-            <View style={styles.Main}>
-                {/* <ImageBackground style={styles.Banner} source={require('../../Assets/ImgBannerHome.png')}>
-                    <Text style={styles.TextoBanner}>
-                        Busque e crie
-                        escopos junto
-                        de profissionais
-                        parceiros
-                    </Text>
-                    <TouchableOpacity onPress={this.Logout}>
-                        <Image source={require('../../Assets/IconsNavigation/logout.png')} />
-                    </TouchableOpacity>
-                </ImageBackground > */}
-                <View style={styles.Section}>
-                    <Text style={styles.SectionTexto}>
-                        Veja as sugestões de escopos de projetos criados por outros professores
-                    </Text>
-                    <TouchableOpacity>
-                        <Image source={require('../../assets/img/escopos.png')} style={styles.SectionImg} />
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.Section}>
-                    <Text style={styles.SectionTexto}>
-                        Crie os seus escopos de projetos públicos
-                    </Text>
-                    <TouchableOpacity onPress={this.props.navigation.navigate('Cadastrar_Escopo')}>
-                        <Image source={require('../../assets/img/cadastro.png')} style={styles.SectionImg} />
-                    </TouchableOpacity>
-                </View>
-            </View>
+            <ImageBackground style={styles.fundoMedico} source={require('../../assets/img/pacient.jpeg')}>
+                <FlatList
+                    contentContainerStyle={styles.mainBodyContent}
+                    data={this.state.listaConsultas}
+                    keyExtractor={item => item.idConsulta}
+                    renderItem={this.renderItem}
+                />
+            </ImageBackground>
         )
     }
+
+    //EDITAR AQUI
+    // renderItem = ({ item }) => (
+    //     // <Text style={{ fontSize: 20, color: 'red' }}>{item.nomeEvento}</Text>
+
+    //     <View style={styles.flatItemRow}>
+    //         <View style={styles.flatItemContainer}>
+    //             <Text style={styles.flatItemTitle}>{item.nomeEvento}</Text>
+    //             <Text style={styles.flatItemInfo}>{item.descricao}</Text>
+
+    //             <Text style={styles.flatItemInfo}>
+    //                 {Intl.DateTimeFormat("pt-BR", {
+    //                     year: 'numeric', month: 'short', day: 'numeric',
+    //                     hour: 'numeric', minute: 'numeric', hour12: true
+    //                 }).format(new Date(item.dataEvento))}
+    //             </Text>
+    //         </View>
+
+    //         <View style={styles.flatItemImg}>
+    //             <TouchableOpacity
+    //                 onPress={() => this.inscrever(item.idEvento)}
+    //                 style={styles.flatItemImgIcon}>
+    //                 <Image source={require('../../assets/img/view.png')} />
+    //             </TouchableOpacity>
+    //         </View>
+    //     </View>
+    // );
 }
 
 const styles = StyleSheet.create({
-    Main: {
-        flex: 1,
-        alignItems: "center",
-        backgroundColor: "#FFF"
-    },
-    TextoBanner: {
-        width: '60%',
-        color: '#FFF',
-        fontSize: 30,
-    },
-    Banner: {
+
+    fundoMedico: {
         width: '100%',
-        height: 232,
-        flexDirection: "row",
-        justifyContent: "space-around",
-        paddingTop: 35
+        height: '100%',
     },
-    Section: {
-        marginTop: 35,
-        width: 300,
-        height: 125,
-        flexDirection: "row",
-        alignItems: "center",
-        borderRadius: 20,
-        borderColor: '#E4E3E2',
-        borderWidth: 2,
-        padding: 25,
-    },
-    SectionTexto: {
-        fontSize: 18,
-        color: "#000",
-        width: 190
-    },
-    SectionImg: {
-        tintColor: "#DB3D58",
-    }
+
 });
 
-// const Home = () => {
-//     return (
-//         <ScrollView>
-//             <Text style={styles.texto}>
-//                 teste ebaaa
-//             </Text>
-//         </ScrollView>
-//     );
-// };
-
-// export default Home;
