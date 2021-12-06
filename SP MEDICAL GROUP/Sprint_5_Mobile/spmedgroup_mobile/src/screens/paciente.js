@@ -94,7 +94,11 @@ export default class Paciente extends Component {
             </View>
             <View style={styles.flatListLinha}>
                 <Text style={styles.flatListTitulo}>Data: </Text>
-                <Text style={styles.flatListInfos}>{item.dataHorario}</Text>
+                <Text style={styles.flatListInfos}>
+                    {Intl.DateTimeFormat("pt-BR", {
+                        year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false
+                    }).format(new Date(item.dataHorario))}
+                </Text>
             </View>
             <View style={styles.flatListLinha}>
                 <Text style={styles.flatListTitulo}>Situação: </Text>

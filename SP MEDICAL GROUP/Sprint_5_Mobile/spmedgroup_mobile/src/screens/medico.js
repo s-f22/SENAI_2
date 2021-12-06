@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import {
-    SafeAreaView,
+    
     ScrollView,
     StatusBar,
     StyleSheet,
@@ -10,25 +10,22 @@ import {
     View,
     Image,
     ImageBackground,
-    TouchableOpacity
+    TouchableOpacity,
+    FlatList
 } from 'react-native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
-import {
-    Colors,
-    DebugInstructions,
-    Header,
-    LearnMoreLinks,
-    ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import api from '../services/api';
 
 
 
 export default class Medico extends Component {
     constructor(props) {
-        super(props);
+        super(props)
+        this.state = {
+            listaConsultas: [],
+        };
     }
 
     Logout = async () => {
@@ -36,88 +33,148 @@ export default class Medico extends Component {
         this.props.navigation.navigate('Login');
     }
 
+
+    buscarConsultas = async () => {
+
+        const token = await AsyncStorage.getItem('userToken')
+
+        const resposta = await api.get('/Usuarios/ListarMinhasConsultas', {
+            headers: {
+                Authorization: 'Bearer ' + token,
+            }
+        });
+
+        //console.warn(resposta);
+
+        const dadosDaApi = resposta.data;
+        this.setState({ listaConsultas: dadosDaApi });
+    };
+
+
+
+    componentDidMount() {
+        this.buscarConsultas();
+        //console.warn(listaConsultas);
+    }
+
+
     render() {
         return (
-            <View style={styles.Main}>
-                {/* <ImageBackground style={styles.Banner} source={require('../../Assets/ImgBannerHome.png')}>
-                    <Text style={styles.TextoBanner}>
-                        Busque e crie
-                        escopos junto
-                        de profissionais
-                        parceiros
-                    </Text>
-                    <TouchableOpacity onPress={this.Logout}>
-                        <Image source={require('../../Assets/IconsNavigation/logout.png')} />
-                    </TouchableOpacity>
-                </ImageBackground > */}
-                <View style={styles.Section}>
-                    <Text style={styles.SectionTexto}>
-                        Veja as sugestões de escopos de projetos criados por outros professores
-                    </Text>
-                    <TouchableOpacity>
-                        <Image source={require('../../assets/img/escopos.png')} style={styles.SectionImg} />
-                    </TouchableOpacity>
+            <ImageBackground style={styles.fundoMedico} source={require('../../assets/img/doctor.jpg')}>
+                <StatusBar animated={true}
+                    backgroundColor="#61dafb"
+                    //barStyle={statusBarStyle}
+                    //showHideTransition={statusBarTransition}
+                    hidden={false}
+                />
+                <View style={styles.header}>
+                    <Text>Paciente</Text>
+                    <Image source={require('../../assets/img/btn_Sair.png')} />
                 </View>
-                <View style={styles.Section}>
-                    <Text style={styles.SectionTexto}>
-                        Crie os seus escopos de projetos públicos medico
-                    </Text>
-                    <TouchableOpacity >
-                        <Image source={require('../../assets/img/cadastro.png')} style={styles.SectionImg} />
-                    </TouchableOpacity>
-                </View>
-            </View>
+
+
+                <FlatList
+                    // contentContainerStyle={styles.mainBodyContent}
+                    data={this.state.listaConsultas}
+                    keyExtractor={item => item.idConsulta}
+                    renderItem={this.renderItem}
+                />
+
+            </ImageBackground>
         )
     }
+
+    renderItem = ({ item }) => (
+        <View style={styles.flatListBox}>
+            <View style={styles.flatListLinha}>
+                <Text style={styles.flatListTitulo}>Paciente: </Text>
+                <Text style={styles.flatListInfos}>{item.idPacienteNavigation.nomeCompleto}</Text>
+            </View>
+            <View style={styles.flatListLinha}>
+                <Text style={styles.flatListTitulo}>Médico: </Text>
+                <Text style={styles.flatListInfos}>{item.idMedicoNavigation.nomeCompleto}</Text>
+            </View>
+            <View style={styles.flatListLinha}>
+                <Text style={styles.flatListTitulo}>Data: </Text>
+                <Text style={styles.flatListInfos}>
+                    {Intl.DateTimeFormat("pt-BR", {
+                        year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false
+                    }).format(new Date(item.dataHorario))}
+                </Text>
+            </View>
+            <View style={styles.flatListLinha}>
+                <Text style={styles.flatListTitulo}>Situação: </Text>
+                <Text style={styles.flatListInfos}>{item.idSituacaoNavigation.titulo}</Text>
+            </View>
+            <View style={styles.flatListLinha}>
+                <Text style={styles.flatListTitulo}>Resumo: </Text>
+                <Text style={styles.flatListInfos}>{item.resumo}</Text>
+            </View>
+
+
+
+        </View>
+
+    )
+
+
 }
 
 const styles = StyleSheet.create({
-    Main: {
-        flex: 1,
-        alignItems: "center",
-        backgroundColor: "#FFF"
-    },
-    TextoBanner: {
-        width: '60%',
-        color: '#FFF',
-        fontSize: 30,
-    },
-    Banner: {
+
+    fundoMedico: {
         width: '100%',
-        height: 232,
-        flexDirection: "row",
-        justifyContent: "space-around",
-        paddingTop: 35
+        height: '100%',
+        alignItems:'center',
     },
-    Section: {
-        marginTop: 35,
-        width: 300,
-        height: 125,
+
+    header: {
         flexDirection: "row",
+        justifyContent: "space-between",
+        paddingLeft: 20,
+        paddingRight: 20,
+        height: 50,
+        width: '100%',
         alignItems: "center",
-        borderRadius: 20,
-        borderColor: '#E4E3E2',
+        backgroundColor: 'rgba(3,166,150,0.75)',
+    },
+
+    // mainBodyContent: {
+    //     alignItems: 'center',
+    //     backgroundColor: '#FFF',
+    //     width: 350,
+        
+    // },
+
+    flatListBox: {
+        backgroundColor: 'rgba(3, 166, 150, 0.85)',
+        //width: 350,
+        padding: 20,
+        marginLeft: 20,
+        marginRight: 20,
+        marginTop: 20,
+        borderRadius: 10,
+        borderStyle: 'solid',
         borderWidth: 2,
-        padding: 25,
+        borderColor: '#05F29B'
     },
-    SectionTexto: {
-        fontSize: 18,
-        color: "#000",
-        width: 190
+
+    flatListLinha: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
-    SectionImg: {
-        tintColor: "#DB3D58",
+
+    flatListTitulo: {
+        width: '25%',
+        color: '#FFF',
+        fontWeight: 'bold',
+    },
+
+    flatListInfos: {
+        width: '75%',
+        textAlign: 'right',
+        color: '#FFF',
     }
+
 });
 
-// const Home = () => {
-//     return (
-//         <ScrollView>
-//             <Text style={styles.texto}>
-//                 teste ebaaa
-//             </Text>
-//         </ScrollView>
-//     );
-// };
-
-// export default Home;
