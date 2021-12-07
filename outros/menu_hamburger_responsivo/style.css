@@ -1,0 +1,117 @@
+body, ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+a:hover {
+    background: tomato;
+}
+
+#logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* border box desconsidera margins e paddings nos tamanhos de altura e comprimento */
+#header {
+    box-sizing: border-box; 
+    height: 70px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: cornflowerblue;
+}
+
+#menu {
+    display: flex;
+    list-style: none;
+    gap: .5rem;
+}
+
+#menu a {
+    display: block;
+    padding: .5rem;
+}
+
+#btn_mobile{
+    display: none;
+}
+
+/* para tudo que for abaixo de 600px, aplicar: */
+@media (max-width: 600px) {
+    
+    #menu {
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 70px;
+        right: 0px;
+        background: blueviolet;
+        z-index: 10;
+        height: 0px;
+        transition: .6s;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+
+    /* quando #nav tiver a classe "active", eu quero falar com #menu; overflow auto só serve para, em caso de a lista possuir muitos itens, uma barra de scroll é adicionada automaticamente para que sejam visiveis */
+    #nav.active #menu {
+        height: calc(100vh - 70px);
+        visibility: visible;
+        overflow-y: auto;
+    }
+
+    #menu a {
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid rgba(0, 0, 0, .2);
+    }
+
+    #btn_mobile {
+        display: flex;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: .5rem;
+    }
+
+    #hamburger {
+        border-top: 2px solid;
+        width: 20px;
+    }
+
+    #hamburger::after, #hamburger::before {
+        content: '';
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        display: block;
+        margin-top: 5px;
+        transition: .3s;
+        position: relative;
+    }
+
+    #nav.active #hamburger {
+        border-top: transparent;
+    }
+
+    #nav.active #hamburger::before {
+        transform: rotate(135deg);
+        top: 5px;
+    }
+
+    #nav.active #hamburger::after {
+        transform: rotate(-135deg);
+        top: -2px;
+    }
+
+}

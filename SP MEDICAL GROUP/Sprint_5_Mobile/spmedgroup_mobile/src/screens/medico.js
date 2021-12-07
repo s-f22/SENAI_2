@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import {
-    
+
     ScrollView,
     StatusBar,
     StyleSheet,
@@ -30,7 +30,7 @@ export default class Medico extends Component {
 
     Logout = async () => {
         await AsyncStorage.removeItem('userToken');
-        this.props.navigation.navigate('Login');
+        this.props.navigation.navigate('pgLogin');
     }
 
 
@@ -68,13 +68,15 @@ export default class Medico extends Component {
                     hidden={false}
                 />
                 <View style={styles.header}>
-                    <Text>Paciente</Text>
-                    <Image source={require('../../assets/img/btn_Sair.png')} />
+                    <Text style={styles.tagTitle}>Médico</Text>
+                    <TouchableOpacity onPress={this.Logout}>
+                        <Image source={require('../../assets/img/btn_Sair.png')} />
+                    </TouchableOpacity>
                 </View>
 
 
                 <FlatList
-                    // contentContainerStyle={styles.mainBodyContent}
+                    contentContainerStyle={styles.mainBodyContent}
                     data={this.state.listaConsultas}
                     keyExtractor={item => item.idConsulta}
                     renderItem={this.renderItem}
@@ -125,7 +127,7 @@ const styles = StyleSheet.create({
     fundoMedico: {
         width: '100%',
         height: '100%',
-        alignItems:'center',
+        alignItems: 'center',
     },
 
     header: {
@@ -136,23 +138,35 @@ const styles = StyleSheet.create({
         height: 50,
         width: '100%',
         alignItems: "center",
-        backgroundColor: 'rgba(3,166,150,0.75)',
+        backgroundColor: 'rgba(3,166,150,0.9)',
     },
 
-    // mainBodyContent: {
-    //     alignItems: 'center',
-    //     backgroundColor: '#FFF',
-    //     width: 350,
-        
-    // },
+    tagTitle: {
+        color: '#FFF',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+
+    mainBodyContent: {
+        // alignItems: 'center',
+        // backgroundColor: '#FFF',
+        // width: 350,
+        marginTop: 15,
+        paddingBottom: 30,
+
+    },
 
     flatListBox: {
         backgroundColor: 'rgba(3, 166, 150, 0.85)',
         //width: 350,
-        padding: 20,
-        marginLeft: 20,
-        marginRight: 20,
-        marginTop: 20,
+        paddingLeft: 15,
+        paddingRight: 15,
+        paddingTop: 10,
+        paddingBottom: 10,
+        marginLeft: 30,
+        marginRight: 30,
+        marginTop: 5,
+        marginBottom: 5,
         borderRadius: 10,
         borderStyle: 'solid',
         borderWidth: 2,
