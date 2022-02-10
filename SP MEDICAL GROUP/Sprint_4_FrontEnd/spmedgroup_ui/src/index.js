@@ -72,9 +72,11 @@ const routing = (
       <Switch>
         <Route exact path="/" component={HomeLogin} />
         <Route path="/login" component={HomeLogin} />
-        <PermissaoAdm path="/administrador" component={Administrador} />
+        {/* <PermissaoAdm path="/administrador" component={Administrador} />
         <PermissaoMedico path="/medico" component={Medico} />
-        <PermissaoPaciente path="/paciente" component={Paciente} />
+        <PermissaoPaciente path="/paciente" component={Paciente} /> */}
+        <Route path="/paciente" component={Paciente} />
+        <Route path="/administrador" component={Administrador} />
       </Switch>
     </div>
   </Router>

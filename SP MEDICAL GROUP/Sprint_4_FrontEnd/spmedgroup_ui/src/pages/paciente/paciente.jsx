@@ -18,15 +18,13 @@ export default function Paciente() {
     function buscarConsultas() {
         console.log('buscou as consultaaas')
         axios
-            ('http://localhost:5000/api/Usuarios/ListarMinhasConsultas',
-                {
-                    headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login') }
-                }
+            ('https://62055d05161670001741ba30.mockapi.io/consulta',
+               
             )
             .then(response => {
-                if (response.status === 200) {
+                
                     setListaConsultas(response.data)
-                }
+                
             })
             .catch(erro => console.log(erro));
     };
@@ -63,15 +61,15 @@ export default function Paciente() {
                                                 </div>
                                                 <div className="linha_campos_cadastro_consultas">
                                                     <h4> Médico: </h4>
-                                                    <p> {consulta.idMedicoNavigation.nomeCompleto} </p>
+                                                    <p> {consulta.idMedicoNavigation[0].nomeCompleto} </p>
                                                 </div>
                                                 <div className="linha_campos_cadastro_consultas">
                                                     <h4> Data: </h4>
-                                                    <p> {consulta.dataHorario} </p>
+                                                    {/* <p> {consulta.dataHorario} </p> */}
                                                 </div>
                                                 <div className="linha_campos_cadastro_consultas">
                                                     <h4> Situação: </h4>
-                                                    <p> {consulta.idSituacaoNavigation.titulo} </p>
+                                                    {/* <p> {consulta.idSituacaoNavigation.titulo} </p> */}
                                                 </div>
                                                 <div className="linha_campos_cadastro_consultas">
                                                     <h4> Resumo: </h4>
