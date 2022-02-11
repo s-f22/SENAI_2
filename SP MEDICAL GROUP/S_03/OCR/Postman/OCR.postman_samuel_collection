@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "eeafb59c-87fc-4de6-a935-48ec61dc2718",
+		"name": "OCR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "OCR_Post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "default"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "1bdb8bf94f8e49e5a7509b1b89675035",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "arquivo",
+							"type": "file",
+							"src": "/C:/Users/33848821800/Desktop/SENAI_2/S_03/OCR/imagens/equipamento_1.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://ocr-equipamento-karamazov.cognitiveservices.azure.com/vision/v3.2/ocr?language=unk&detectOrientation=true&model-version=latest",
+					"protocol": "https",
+					"host": [
+						"ocr-equipamento-karamazov",
+						"cognitiveservices",
+						"azure",
+						"com"
+					],
+					"path": [
+						"vision",
+						"v3.2",
+						"ocr"
+					],
+					"query": [
+						{
+							"key": "language",
+							"value": "unk"
+						},
+						{
+							"key": "detectOrientation",
+							"value": "true"
+						},
+						{
+							"key": "model-version",
+							"value": "latest"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

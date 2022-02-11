@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "01f50935-e0d3-4090-93fe-b7871c7d69b3",
+		"name": "OCR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://ocr-equipamentos-paulo.cognitiveservices.azure.com/vision/v3.2/ocr?language=pt&detectOrientation=true&model-version=latest",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "c3d4e190149044b585f84c6465dd2ac5",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "url",
+							"type": "file",
+							"src": "/C:/Users/paulo.brandao/Downloads/equipamento (1).jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://ocr-equipamentos-paulo.cognitiveservices.azure.com/vision/v3.2/ocr?language=pt&detectOrientation=true&model-version=latest",
+					"protocol": "https",
+					"host": [
+						"ocr-equipamentos-paulo",
+						"cognitiveservices",
+						"azure",
+						"com"
+					],
+					"path": [
+						"vision",
+						"v3.2",
+						"ocr"
+					],
+					"query": [
+						{
+							"key": "language",
+							"value": "pt"
+						},
+						{
+							"key": "detectOrientation",
+							"value": "true"
+						},
+						{
+							"key": "model-version",
+							"value": "latest"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
